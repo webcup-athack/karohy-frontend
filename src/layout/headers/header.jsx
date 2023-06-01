@@ -18,7 +18,8 @@ const Header = () => {
               <div className="col-xl-3 col-lg-3">
                 <div className="tp-logo">
                   <Link href="/">
-                    <a><img src="/assets/img/logo/logo-blue.png" alt="" /></a>
+                    {/* <a><img src="/assets/img/logo/logo-blue.png" alt="" /></a> */}
+                    <h1>Karohy</h1>
                   </Link>
                 </div>
               </div>

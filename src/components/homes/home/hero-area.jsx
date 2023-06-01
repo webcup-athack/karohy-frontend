@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
+import SearchForm from '../../custom/form/search-form';
 
 const hero_contents = {
-  title: 'We make things look good',
+  title: 'We make look good',
   text: <>At Collax we specialize in designing, building, shipping and scaling beautiful, <br />
     usable products with blazing-fast efficiency</>,
   btn_text: 'Visit Case Studies',
@@ -29,14 +30,18 @@ const HeroArea = () => {
       <div className="tp-hero-wapper">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-xl-7 col-lg-7">
+            <div className="col-xl-2 col-lg-2"></div>
+            <div className="col-xl-8 col-lg-8">
               <div className="tp-hero-content">
                 <div className="tp-hero-text">
                   <h2 className="tp-hero-title wow tpfadeUp" data-wow-duration=".3s" data-wow-delay=".6s">
                     {title}
                   </h2>
                   <p className="wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".8s">{text}</p>
-                  <div className="tp-hero-button mb-140 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
+                  <div className="tpcontact__form tpcontact__form-3">
+                    <SearchForm />
+                  </div>
+                  {/* <div className="tp-hero-button mb-140 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
                     <Link href="/portfolio">
                       <a className="tp-btn mr-30">{btn_text}</a>
                     </Link>
@@ -44,7 +49,7 @@ const HeroArea = () => {
                       <a className="tp-btn-grey">{btn_text_2}
                         <i className="far fa-arrow-right"></i></a>
                     </Link>
-                  </div>
+                  </div> */}
                   <div className="tp-hero-social pb-30 wow tpfadeIn" data-wow-duration=".7s" data-wow-delay="1.2s">
                     <div className="tp-hero-social bp-hero-social">
                       {social_links.map((l, i) => (
@@ -57,11 +62,12 @@ const HeroArea = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-5 col-lg-5">
+            <div className="col-xl-2 col-lg-2"></div>
+            {/* <div className="col-xl-5 col-lg-5">
               <div className="tp-hero-big-img wow fadeInRight" data-wow-duration=".7s" data-wow-delay="1.2s">
                 <img src={hero_img} alt="" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
