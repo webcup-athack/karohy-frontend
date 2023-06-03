@@ -23,12 +23,12 @@ const SearchForm = () => {
 
   return (
     <form id="contact-form" onSubmit={handleSubmit}>
-      <div className='mb-30'>
+      <div className='mb-20'>
         <textarea value={values.msg} className='shadow-lg' onChange={handleChange} onBlur={handleBlur} name="msg"
-          placeholder="Enter your Massage"></textarea>
+          placeholder="Décrivez ici ce dont vous avez besoin : vos attentes, les détails du service recherché, vos préférences spécifiques, etc. Nous nous efforcerons de trouver le prestataire parfaitement adapté à vos besoins."></textarea>
         {touched.msg && <ErrorMsg error={errors.msg} />}
       </div>
-      <button type="submit" className="tp-btn-yellow">Send Massage</button>
+      <button type="submit" className="tp-btn-yellow">Rechercher</button>
     </form>
   );
 };
