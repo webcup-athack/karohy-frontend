@@ -2,31 +2,16 @@ const menu_data = [
   {
     id:1,
     mega_menu:false,
-    has_dropdown:true,
-    title:'Home',
-    link:'/',
-    sub_menus:[
-      {link:'/',title:'Creative Agency'},
-      {link:'/home-2',title:'Personal Portfolio'},
-      {link:'/home-3',title:'Startup Business'},
-      {link:'/home-4',title:'Digital Agency'},
-      {link:'/home-5',title:'Business Advisor'},
-      {link:'/home-6',title:'IT Service Agency'},
-    ]
+    has_dropdown:false,
+    title:'Accueil',
+    link:'/'
   },
   {
     id:2,
     mega_menu:false,
-    has_dropdown:true,
-    title:'Portfolio',
-    link:'/portfolio',
-    sub_menus:[
-      {link:'/portfolio',title:'Animateur'},
-      {link:'/portfolio-2',title:'Traiteur'},
-      {link:'/portfolio-3',title:'Musicien'},
-      {link:'/portfolio-masonry',title:'Maquilleur'},
-      {link:'/portfolio-details',title:'Portfolio Details'},
-    ]
+    has_dropdown:false,
+    title:'A propos',
+    link:'/portfolio'
   },
   // {
   //   id:3,
@@ -60,19 +45,15 @@ const menu_data = [
   // {
   //   id:4,
   //   mega_menu:false,
-  //   has_dropdown:true,
+  //   has_dropdown:false,
   //   title:'Blog',
-  //   link:'/blog',
-  //   sub_menus:[
-  //     {link:'/blog',title:'Blog Sidebar'},
-  //     {link:'/blog-details',title:'Blog Details'},
-  //   ]
+  //   link:'/blog'
   // },
   {
     id:5,
     mega_menu:false,
     has_dropdown:false,
-    title:'Se connecter',
+    title:'Nous contacter',
     link:'/contact',
   }
 ]

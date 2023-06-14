@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import menu_data from '../../../layout/headers/menu-data';
 
 const sidebar_contents = {
-  title: <>We deploy world-class Creative <br /> on demand.</>,
+  title: <>Trouvez le prestataire idéal !</>,
   inst_imgs: [
     '/assets/img/offcanvas/insta-1.jpg',
     '/assets/img/offcanvas/insta-2.jpg',
@@ -30,9 +30,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <div className={`tpoffcanvas ${isOpen ? 'opened' : ''}`}>
           <div className="tpoffcanvas__logo">
             <Link href="/">
-              <a>
-                <img src="/assets/img/logo/logo-white.png" alt="" />
-              </a>
+              <h1>Karohy</h1>
             </Link>
           </div>
           <div className="tpoffcanvas__close-btn" onClick={() => setIsOpen(false)}>
@@ -64,8 +62,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <li>
                 <i className="fas fa-star"></i> <a href="https://goo.gl/maps/abHegV4AoiJA6Syd8" rel="noreferrer" target="_blank">Melbone st, Australia, Ny 12099</a>
               </li>
-              <li><i className="fas fa-star"></i><a href="tel:8180012345678">+81 800 123 456 78</a></li>
-              <li><i className="fas fa-star"></i><a href="mailto:Collaxmail@gmail.com">Collaxmail@gmail.com</a></li>
+              <li><i className="fas fa-star"></i><a href="tel:261324806758">+261 32 48 067 58</a></li>
+              <li><i className="fas fa-star"></i><a href="mailto:Collaxmail@gmail.com">cupine2023@gmail.com</a></li>
             </ul>
           </div>
           <div className="tpoffcanvas__input d-none d-sm-block">
@@ -75,7 +73,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <button type="submit"><i className="fas fa-paper-plane"></i></button>
             </form>
           </div>
-          <div className="tpoffcanvas__instagram d-none d-sm-block">
+          {/* <div className="tpoffcanvas__instagram d-none d-sm-block">
             <p>Check Instagram POst</p>
             <div className="tp-insta">
               <div className="row">
@@ -86,7 +84,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

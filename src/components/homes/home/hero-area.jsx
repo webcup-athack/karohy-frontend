@@ -5,7 +5,7 @@ import ServiceCard from '../../custom/card/service-card';
 
 const hero_contents = {
   title: "Karohy- Trouvez le prestataire idéal !",
-  text: <>Karohy, l'espace numérique dynamique où vous pouvez instantanément dénicher le prestataire de service idéal qui donnera vie à vos projets avec brio!</>,
+  text: <>Karohy, l{"'"}espace numérique dynamique où vous pouvez instantanément dénicher le prestataire de service idéal qui donnera vie à vos projets avec brio!</>,
   btn_text: 'Visit Case Studies',
   btn_text_2: 'About Collax',
   social_links: [
