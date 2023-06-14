@@ -55,9 +55,10 @@ const SearchForm = () => {
 	};
 	const handleSearchSubmit = (e) => {
 		handleSubmit(e);
-		if (!errors?.msg && values?.msg) {
-			getSearchResult(3);
-		}
+		// if (!errors?.msg && values?.msg) {
+		// 	getSearchResult(3);
+		// }
+		getSearchResult(3);
 	};
 
 	return (
@@ -72,7 +73,7 @@ const SearchForm = () => {
 						name="msg"
 						placeholder="Décrivez ici ce dont vous avez besoin : vos attentes, les détails du service recherché, vos préférences spécifiques, etc. Nous nous efforcerons de trouver le prestataire parfaitement adapté à vos besoins."
 					></textarea>
-					{touched.msg && <ErrorMsg error={errors.msg} />}
+					{/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
 				</div>
 				<button type="submit" className="tp-btn-yellow" ref={buttonRef}>
 					Rechercher
