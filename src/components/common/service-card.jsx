@@ -24,7 +24,7 @@ const ServiceCard = ({ service, border }) => {
 						<div className="tp-sv-link mt-35">
 							<Link href={`/service-details/${service.id}`}>
 								<a>
-									<i className="far fa-arrow-right"></i> Learn More
+									<i className="far fa-arrow-right"></i> Détails
 								</a>
 							</Link>
 						</div>
