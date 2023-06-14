@@ -63,7 +63,7 @@ const services_data = [
     stars: 2,
     reputation: 2, // 1 à 5
     text_1:
-      "Décoration événementielle et florale mariage fiançailles baptême anniversaire",
+      "Décoration événementielle et florale: mariage, fiançailles, baptême, anniversaire",
     text_2: "",
     home: true,
     service_p_2: true,
