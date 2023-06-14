@@ -26,7 +26,7 @@ const SearchForm = () => {
       <div className='mb-20'>
         <textarea value={values.msg} className='shadow-lg' onChange={handleChange} onBlur={handleBlur} name="msg"
           placeholder="Décrivez ici ce dont vous avez besoin : vos attentes, les détails du service recherché, vos préférences spécifiques, etc. Nous nous efforcerons de trouver le prestataire parfaitement adapté à vos besoins."></textarea>
-        {touched.msg && <ErrorMsg error={errors.msg} />}
+        {/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
       </div>
       <button type="submit" className="tp-btn-yellow">Rechercher</button>
     </form>
