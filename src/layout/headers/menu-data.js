@@ -1,17 +1,17 @@
 const menu_data = [
   {
-    id:1,
-    mega_menu:false,
-    has_dropdown:false,
-    title:'Accueil',
-    link:'/'
+    id: 1,
+    mega_menu: false,
+    has_dropdown: false,
+    title: "Accueil",
+    link: "/",
   },
   {
-    id:2,
-    mega_menu:false,
-    has_dropdown:false,
-    title:'A propos',
-    link:'/portfolio'
+    id: 2,
+    mega_menu: false,
+    has_dropdown: false,
+    title: "À propos",
+    link: "/portfolio",
   },
   // {
   //   id:3,
@@ -50,12 +50,11 @@ const menu_data = [
   //   link:'/blog'
   // },
   {
-    id:5,
-    mega_menu:false,
-    has_dropdown:false,
-    title:'Nous contacter',
-    link:'/contact',
-  }
-]
+    id: 5,
+    mega_menu: false,
+    has_dropdown: false,
+    title: "Nous contacter",
+    link: "/contact",
+  },
+];
 export default menu_data;
-
