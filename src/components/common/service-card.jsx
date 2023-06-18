@@ -37,8 +37,6 @@ const ServiceCard = ({ service, border }) => {
 								</SousCategorie>
 							</CategorieWrapper>
 						</h3>
-						<Description1 className="mb-30">{service.text_1}</Description1>
-						<Description2>{service.text_2}</Description2>
 						<div className="tp-sv-link mt-35">
 							<Link href={`/service-details/${service.id}`}>
 								<a>
@@ -75,12 +73,6 @@ const SousCategorie = styled.span`
 	border-radius: 5;
 	color: #878787;
 	font-size: 15;
-`;
-const Description1 = styled.p`
-	padding: 0 !important;
-`;
-const Description2 = styled.p`
-	padding: 0 !important;
 `;
 
 export default ServiceCard;

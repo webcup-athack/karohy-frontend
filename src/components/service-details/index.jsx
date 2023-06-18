@@ -5,23 +5,22 @@ import Breadcrumb from '../common/breadcrumb/breadcrumb';
 import AccordionArea from './accordion-area';
 import ServiceDetailsArea from './service-details-area';
 
+const ServiceDetails = ({ service }) => {
+	useEffect(() => {
+		setTimeout(() => {
+			animationCreate();
+		}, 500);
+	}, []);
 
-const ServiceDetails = ({service}) => {
-  useEffect(() => {
-    setTimeout(() => {
-      animationCreate();
-    }, 500);
-  }, []);
-
-  return (
-    <Wrapper>
-      <HeaderSix />
-      <Breadcrumb title={service?.title ? service?.title : 'Service Details'} />
-      <ServiceDetailsArea/>
-      <AccordionArea/>
-      <FooterThree />
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<HeaderSix />
+			<Breadcrumb service={service} />
+			<ServiceDetailsArea service={service} />
+			{/* <AccordionArea /> */}
+			<FooterThree />
+		</Wrapper>
+	);
 };
 
 export default ServiceDetails;
