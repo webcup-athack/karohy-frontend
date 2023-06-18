@@ -12,7 +12,7 @@ const MobileMenu = ({ logo, bg, transparent = true }) => {
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-6" style={{
-              paddingLeft: 50
+              paddingLeft: 20
             }}>
               {/* <div className="tp-logo">
                 <a href="#"><img src={`/assets/img/logo/${logo}`} alt="" /></a>
