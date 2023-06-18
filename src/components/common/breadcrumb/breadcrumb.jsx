@@ -22,6 +22,7 @@ const Breadcrumb = ({ service, back_home = false }) => {
 										<StarWrapper>
 											{[...new Array(5)].map((e, i) => (
 												<i
+													key={i}
 													className="fas fa-star"
 													style={{
 														color: service.reputation >= i + 1 ? '#ffe936' : '',
