@@ -72,7 +72,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
             onChange={handleChange}
             onBlur={handleBlur}
             name="msg"
-            placeholder="Décrivez ici ce dont vous avez besoin : vos attentes, les détails du service recherché, vos préférences spécifiques, etc. Nous nous efforcerons de trouver le prestataire parfaitement adapté à vos besoins."
+            placeholder="Que recherchez-vous ?"
           ></textarea>
           {/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
         </div>
