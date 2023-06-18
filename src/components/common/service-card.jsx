@@ -27,7 +27,8 @@ const ServiceCard = ({ service, border }) => {
 											color: service.reputation >= i + 1 ? '#ffe936' : '',
 										}}
 									></i>
-								))}
+								))}{' '}
+								<span>({service.stars})</span>
 							</StarWrapper>
 							<CategorieWrapper>
 								<Categorie className="mb-10"> {service.categorie}</Categorie>
