@@ -11,10 +11,13 @@ const MobileMenu = ({ logo, bg, transparent = true }) => {
     ${bg ? bg : ''} ${headerSticky ? 'header-sticky' : ''}`}>
         <div className="container-fluid">
           <div className="row align-items-center">
-            <div className="col-6">
-              <div className="tp-logo">
+            <div className="col-6" style={{
+              paddingLeft: 50
+            }}>
+              {/* <div className="tp-logo">
                 <a href="#"><img src={`/assets/img/logo/${logo}`} alt="" /></a>
-              </div>
+              </div> */}
+              <h1>Karohy</h1>
             </div>
             <div className="col-6">
               <div className="bar text-end">
