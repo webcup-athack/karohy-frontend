@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { styled } from 'styled-components';
 
 const ServiceCard = ({ service, border }) => {
 	return (
@@ -18,9 +19,25 @@ const ServiceCard = ({ service, border }) => {
 							<Link href={`/service-details/${service.id}`}>
 								<a>{service.title}</a>
 							</Link>
+							<StarWrapper>
+								{[...new Array(5)].map((e, i) => (
+									<i
+										key={i}
+										className="fas fa-star"
+										style={{
+											color: service.reputation >= i + 1 ? '#ffe936' : '',
+										}}
+									></i>
+								))}{' '}
+								<span>({service.stars})</span>
+							</StarWrapper>
+							<CategorieWrapper>
+								<Categorie className="mb-10"> {service.categorie}</Categorie>
+								<SousCategorie className="mb-10">
+									{service.sous_categorie}
+								</SousCategorie>
+							</CategorieWrapper>
 						</h3>
-						<p className="mb-30">{service.text_1}</p>
-						<p>{service.text_2}</p>
 						<div className="tp-sv-link mt-35">
 							<Link href={`/service-details/${service.id}`}>
 								<a>
@@ -34,5 +51,29 @@ const ServiceCard = ({ service, border }) => {
 		</div>
 	);
 };
+const StarWrapper = styled.p`
+	padding: 0 !important;
+`;
+const CategorieWrapper = styled.p`
+	padding: 0 !important;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 10px;
+`;
+const Categorie = styled.span`
+	background-color: #ecedef;
+	padding: 5;
+	border-radius: 5;
+	color: #878787;
+	font-size: 15;
+`;
+const SousCategorie = styled.span`
+	background-color: #ecedef;
+	padding: 5;
+	border-radius: 5;
+	color: #878787;
+	font-size: 15;
+`;
 
 export default ServiceCard;
