@@ -387,11 +387,7 @@ const services_data = [
 		reputation: 5, // 1 à 5
 		top_border: true,
 		icon: 'flaticon-target',
-		title: (
-			<>
-				Business <br /> Analysis
-			</>
-		),
+		title: 'Business  Analysis',
 
 		text_1:
 			"Notre service d'analyse commerciale vise à comprendre en profondeur votre entreprise, vos opérations et votre marché pour prendre des décisions éclairées. Nous collectons et analysons des données pertinentes, identifions les tendances, les opportunités et les défis, et évaluons la performance de votre entreprise. Grâce à notre expertise en modélisation et en prévision, nous fournissons des informations précieuses pour optimiser vos stratégies, améliorer vos processus et prendre des décisions basées sur des données tangibles.",

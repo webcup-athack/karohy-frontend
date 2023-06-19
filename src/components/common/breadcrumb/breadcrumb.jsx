@@ -13,41 +13,41 @@ const Breadcrumb = ({ service, back_home = false }) => {
 			</div>
 			<div className="container">
 				<div className="row">
-					<div className="col-xxl-12">
-						<div className="breadcrumb__content p-relative z-index-1">
-							<h3 className="breadcrumb__title">
+					<div className="col-xxl-12" style={{ padding: '0 24px' }}>
+						<BreadcrumbContent className="breadcrumb__content p-relative z-index-1">
+							<H3 className="breadcrumb__title">
 								{service?.title || 'Service details'}
-								{!!service && (
-									<>
-										<StarWrapper>
-											{[...new Array(5)].map((e, i) => (
-												<i
-													key={i}
-													className="fas fa-star"
-													style={{
-														color: service.reputation >= i + 1 ? '#ffe936' : '',
-													}}
-												></i>
-											))}{' '}
-											<span>({service.stars})</span>
-										</StarWrapper>
-										<CategorieWrapper>
-											<Categorie className="mb-10">
-												{' '}
-												{service.categorie}
-											</Categorie>
-											<SousCategorie className="mb-10">
-												{service.sous_categorie}
-											</SousCategorie>
-										</CategorieWrapper>
-									</>
-								)}
-							</h3>
+							</H3>
+							{!!service && (
+								<>
+									<StarWrapper>
+										{[...new Array(5)].map((e, i) => (
+											<i
+												key={i}
+												className="fas fa-star"
+												style={{
+													color: service.reputation >= i + 1 ? '#ffe936' : '',
+												}}
+											></i>
+										))}{' '}
+										<span>({service.stars})</span>
+									</StarWrapper>
+									<CategorieWrapper>
+										<Categorie className="mb-10">
+											{' '}
+											{service.categorie}
+										</Categorie>
+										<SousCategorie className="mb-10">
+											{service.sous_categorie}
+										</SousCategorie>
+									</CategorieWrapper>
+								</>
+							)}
 							{!back_home && (
 								<Link href="/contact">
-									<a className="tp-btn-white-border">
+									<Button className="tp-btn-white-border">
 										Nous contacter <i className="far fa-arrow-right"></i>
-									</a>
+									</Button>
 								</Link>
 							)}
 							{back_home && (
@@ -57,14 +57,24 @@ const Breadcrumb = ({ service, back_home = false }) => {
 									</a>
 								</Link>
 							)}
-						</div>
+						</BreadcrumbContent>
 					</div>
 				</div>
 			</div>
 		</section>
 	);
 };
-
+const Button = styled.a`
+	@media (max-width: 576px) {
+		width: 100%;
+	}
+`;
+const H3 = styled.h3`
+	margin: 0 !important;
+`;
+const BreadcrumbContent = styled.div`
+	width: 100% !important;
+`;
 const StarWrapper = styled.p`
 	padding: 0 !important;
 `;
