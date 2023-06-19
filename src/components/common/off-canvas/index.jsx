@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import menu_data from "../../../layout/headers/menu-data";
-
+import Image from "next/image";
 const sidebar_contents = {
   title: <>Trouvez le prestataire idéal !</>,
   inst_imgs: [
@@ -29,7 +29,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <div className={`tpoffcanvas ${isOpen ? "opened" : ""}`}>
           <div className="tpoffcanvas__logo">
             <Link href="/">
-              <h1>Karohy</h1>
+              <Image src='/assets/img/logo/logo1.png' alt="logo karohy" width={200} height={70}/>
             </Link>
           </div>
           <div

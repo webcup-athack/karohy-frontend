@@ -27,7 +27,7 @@ const Home = () => {
       <Testimonial/>
       <BlogArea/>
       <NewsLetter/> */}
-      <Footer/>
+      {/* <Footer/> */}
     </Wrapper>
   );
 };
