@@ -66,19 +66,19 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
     <>
       <form id="contact-form" onSubmit={handleSearchSubmit}>
         <div className="mb-20">
-          <textarea
+          <input
             value={values.msg}
             className="shadow-lg"
             onChange={handleChange}
             onBlur={handleBlur}
             name="msg"
             placeholder="Que recherchez-vous ?"
-          ></textarea>
+          ></input>
           {/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
         </div>
-        <button type="submit" className="tp-btn-yellow" ref={buttonRef}>
+        {/* <button type="submit" className="tp-btn-yellow" ref={buttonRef}>
           Rechercher
-        </button>
+        </button> */}
       </form>
 
       {searchResult.length > 0 && (
