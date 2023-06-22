@@ -3,7 +3,8 @@ import React from "react";
 
 const SingleServiceTwo = ({ service, border }) => {
   return (
-    <div className="col-lg-5 col-md-12 col-12">
+    <div className="col-lg-4 col-md-6 col-12" style={{
+    }}>
       <div
         className="tp-sv-box wow tpfadeUp"
         data-wow-duration={service.duration}
@@ -12,8 +13,8 @@ const SingleServiceTwo = ({ service, border }) => {
         <div
           className={`tp-service-item ${border ? border : ""} mb-30 shadow-lg`}
           style={{
-            borderTopWidth: 5,
-            borderBottomWidth: 5,
+            borderTopWidth: 10,
+            borderBottomWidth: 10,
             borderTopColor: "#ED254E",
             borderBottomColor: "#ED254E",
             // boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.4)",
@@ -22,10 +23,10 @@ const SingleServiceTwo = ({ service, border }) => {
           <div className="accordion accordion-items" id="details">
             <div className="d-flex">
               <div className="tp-sv-content" style={{ flex: 1 }}>
-                <div className="tp-sv-img text-center">
+                {/* <div className="tp-sv-img text-center">
                   <img src={service.img} alt="" width={200} />
-                </div>
-                <p className="pt-35" style={{ fontSize: 25 }}>
+                </div> */}
+                <p className="pt-35" style={{ fontSize: 16 }}>
                   <i
                     className="fas fa-star"
                     style={{
@@ -103,7 +104,8 @@ const SingleServiceTwo = ({ service, border }) => {
                     marginTop: -20,
                   }}
                 />
-                <div id={`before-${service.id}`}>
+                <div id={`before-${service.id}`} style={{
+                }}>
                   <br />
                   <p>
                     {service.text_1.length + service.text_2.length <= 100
