@@ -22,9 +22,9 @@ const SingleServiceTwo = ({ service, border }) => {
           <div className="accordion accordion-items" id="details">
             <div className="d-flex">
               <div className="tp-sv-content" style={{ flex: 1 }}>
-                {/* <div className="tp-sv-img text-center">
+                <div className="tp-sv-img text-center">
                   <img src={service.img} alt="" width={200} />
-                </div> */}
+                </div>
                 <p className="pt-35" style={{ fontSize: 16 }}>
                   <i
                     className="fas fa-star"
