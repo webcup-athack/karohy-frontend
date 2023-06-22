@@ -3,7 +3,7 @@ import React from "react";
 
 const SingleServiceTwo = ({ service, border }) => {
   return (
-    <div className="col-lg-4 col-md-6 col-12" style={{}}>
+    <div className="col-lg-4 col-md-6 col-12">
       <div
         className="tp-sv-box wow tpfadeUp"
         data-wow-duration={service.duration}
@@ -12,8 +12,8 @@ const SingleServiceTwo = ({ service, border }) => {
         <div
           className={`tp-service-item ${border ? border : ""} mb-30 shadow-lg`}
           style={{
-            borderTopWidth: 10,
-            borderBottomWidth: 10,
+            borderTopWidth: 6,
+            borderBottomWidth: 6,
             borderTopColor: "#ED254E",
             borderBottomColor: "#ED254E",
             paddingTop: 20,
@@ -21,6 +21,7 @@ const SingleServiceTwo = ({ service, border }) => {
             minHeight: 700,
             paddingLeft: 10,
             paddingRight: 10,
+            borderRadius: 10,
           }}
         >
           <div className="accordion accordion-items" id="details">
@@ -113,11 +114,11 @@ const SingleServiceTwo = ({ service, border }) => {
                     </b>
                   </p> */}
                 </h3>
-                <hr
+                <div
                   style={{
-                    color: "red",
+                    backgroundColor: "rgb(237, 37, 78)",
                     width: 100,
-                    borderWidth: 2,
+                    height: 3,
                     marginTop: -20,
                   }}
                 />
