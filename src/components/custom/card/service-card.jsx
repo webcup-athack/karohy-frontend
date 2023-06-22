@@ -12,7 +12,9 @@ const ServiceCard = ({ title }) => {
           <div className="row d-flex justify-content-center">
             <div className="row pb-50">
               <div className="col-md-2 col-lg-2"></div>
-              <h1 className="col-md-8 col-lg-8 text-center">
+              <h1 className="col-md-8 col-lg-8 text-center" style={{
+                fontSize: 24
+              }}>
                 {title}
                 <hr
                   style={{
