@@ -18,7 +18,7 @@ const SingleServiceTwo = ({ service, border }) => {
             borderBottomColor: "#ED254E",
             paddingTop: 20,
             paddingBottom: 30,
-            height: 700,
+            minHeight: 700,
             paddingLeft: 10,
             paddingRight: 10,
           }}
