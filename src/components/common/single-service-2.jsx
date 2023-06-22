@@ -3,7 +3,7 @@ import React from "react";
 
 const SingleServiceTwo = ({ service, border }) => {
   return (
-    <div className="col-lg-4 col-md-6 col-12">
+    <div className="col-lg-5 col-md-6 col-12">
       <div
         className="tp-sv-box wow tpfadeUp"
         data-wow-duration={service.duration}
