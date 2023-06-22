@@ -16,14 +16,16 @@ const SingleServiceTwo = ({ service, border }) => {
             borderBottomWidth: 10,
             borderTopColor: "#ED254E",
             borderBottomColor: "#ED254E",
-            // boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.4)",
+            paddingTop: 20,
+            paddingBottom: 30,
+            height: 700,
           }}
         >
           <div className="accordion accordion-items" id="details">
             <div className="d-flex">
               <div className="tp-sv-content" style={{ flex: 1 }}>
                 <div className="tp-sv-img text-center">
-                  <img src={service.img} alt="" width={200} />
+                  <img src={service.img} alt="" height={200} />
                 </div>
                 <p className="pt-35" style={{ fontSize: 16 }}>
                   <i
