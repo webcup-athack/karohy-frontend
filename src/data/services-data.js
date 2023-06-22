@@ -59,7 +59,7 @@ const services_data = [
     img: "/assets/img/service/lovely.jpg",
     categorie: "Événementiel",
     sous_categorie: "Décorateur",
-    title: "Lovely décoration événementiel",
+    title: "Lovely décoration",
     stars: 2,
     reputation: 2, // 1 à 5
     text_1:
