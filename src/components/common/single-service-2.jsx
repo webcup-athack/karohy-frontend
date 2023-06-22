@@ -1,67 +1,73 @@
 import Link from "next/link";
 import React from "react";
 
-const accordion_items = [
-  {
-    id: "eight",
-    title: "What makes LessAccounting better than the rest?",
-    desc: "A dedicated product design team can help you achieve your business goals. Whether you need to craft an idea for a completely new product or elevate the quality of an existing solution, we’ll help you to create a product that is laser targeted to your users’ needs and delivers business results.",
-  },
-];
-
 const SingleServiceTwo = ({ service, border }) => {
   return (
-    <div className="col-lg-6 col-md-12 col-12">
+    <div className="col-lg-5 col-md-12 col-12">
       <div
         className="tp-sv-box wow tpfadeUp"
         data-wow-duration={service.duration}
         data-wow-delay={service.delay}
       >
-        <div className={`tp-service-item ${border ? border : ""} mb-30`}>
+        <div
+          className={`tp-service-item ${border ? border : ""} mb-30 shadow-lg`}
+          style={{
+            borderTopWidth: 5,
+            borderBottomWidth: 5,
+            borderTopColor: "#ED254E",
+            borderBottomColor: "#ED254E",
+            // boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.4)",
+          }}
+        >
           <div className="accordion accordion-items" id="details">
             <div className="d-flex">
-              <div className="tp-sv-img">
-                <img src={service.img} alt="" />
-              </div>
-              <div className="tp-sv-content pl-60">
-                <h3 className=" tp-sv-title mb-35">
+              <div className="tp-sv-content" style={{ flex: 1 }}>
+                <div className="tp-sv-img text-center">
+                  <img src={service.img} alt="" width={200} />
+                </div>
+                <p className="pt-35" style={{ fontSize: 25 }}>
+                  <i
+                    className="fas fa-star"
+                    style={{
+                      color: service.reputation >= 1 ? "#ffe936" : "",
+                      margin: 2,
+                    }}
+                  ></i>
+                  <i
+                    className="fas fa-star"
+                    style={{
+                      color: service.reputation >= 2 ? "#ffe936" : "",
+                      margin: 2,
+                    }}
+                  ></i>
+                  <i
+                    className="fas fa-star"
+                    style={{
+                      color: service.reputation >= 3 ? "#ffe936" : "",
+                      margin: 2,
+                    }}
+                  ></i>
+                  <i
+                    className="fas fa-star"
+                    style={{
+                      color: service.reputation >= 4 ? "#ffe936" : "",
+                      margin: 2,
+                    }}
+                  ></i>
+                  <i
+                    className="fas fa-star"
+                    style={{
+                      color: service.reputation >= 5 ? "#ffe936" : "",
+                      margin: 2,
+                    }}
+                  ></i>
+                  &nbsp;<span>({service.stars})</span>
+                </p>
+                <h3 className=" tp-sv-title pt-20">
                   <Link href={`/service-details/${service.id}`}>
                     <a>{service.title}</a>
                   </Link>
-                  <p>
-                    <i
-                      className="fas fa-star"
-                      style={{
-                        color: service.reputation >= 1 ? "#ffe936" : "",
-                      }}
-                    ></i>
-                    <i
-                      className="fas fa-star"
-                      style={{
-                        color: service.reputation >= 2 ? "#ffe936" : "",
-                      }}
-                    ></i>
-                    <i
-                      className="fas fa-star"
-                      style={{
-                        color: service.reputation >= 3 ? "#ffe936" : "",
-                      }}
-                    ></i>
-                    <i
-                      className="fas fa-star"
-                      style={{
-                        color: service.reputation >= 4 ? "#ffe936" : "",
-                      }}
-                    ></i>
-                    <i
-                      className="fas fa-star"
-                      style={{
-                        color: service.reputation >= 5 ? "#ffe936" : "",
-                      }}
-                    ></i>
-                    &nbsp;<span>({service.stars})</span>
-                  </p>
-                  <p>
+                  {/* <p>
                     <b
                       className="mb-10"
                       style={{
@@ -87,34 +93,97 @@ const SingleServiceTwo = ({ service, border }) => {
                     >
                       {service.sous_categorie}
                     </b>
-                  </p>
+                  </p> */}
                 </h3>
-                <div id={`heading-${service.id}`}>
+                <hr
+                  style={{
+                    color: "red",
+                    width: 100,
+                    borderWidth: 2,
+                    marginTop: -20,
+                  }}
+                />
+                <div id={`before-${service.id}`}>
+                  <br />
+                  <p>
+                    {service.text_1.length + service.text_2.length <= 100
+                      ? service.text_1
+                      : service.text_1.substring(0, 100) + " ..."}
+                  </p>
+                </div>
+                <div
+                  id={`details-${service.id}`}
+                  className={"accordion-collapse collapse"}
+                  aria-labelledby={`heading-${service.id}`}
+                  data-bs-parent="#details"
+                >
+                  <br />
+                  <p>{service.text_1}</p>
+                  <p>{service.text_2}</p>
+                </div>
+                <div
+                  id={`heading-${service.id}`}
+                  onClick={() => {
+                    document.getElementById(
+                      `before-${service.id}`
+                    ).style.display =
+                      document.getElementById(`before-${service.id}`).style
+                        .display != "none"
+                        ? "none"
+                        : "block";
+
+                    document.getElementById(
+                      `voir-plus-moins-${service.id}`
+                    ).innerHTML =
+                      document.getElementById(`voir-plus-moins-${service.id}`)
+                        .innerHTML != "(voir plus)"
+                        ? "(voir plus)"
+                        : "(voir moins)";
+                  }}
+                  style={{
+                    marginTop: -15,
+                    display:
+                      service.text_1.length + service.text_2.length <= 100
+                        ? "none"
+                        : "block",
+                  }}
+                >
                   <div
                     data-bs-toggle="collapse"
                     data-bs-target={`#details-${service.id}`}
                     aria-controls={`details-${service.id}`}
                   >
-                    <div className="tp-sv-link mt-35">
+                    <div className="tp-sv-link">
                       <Link href={""}>
-                        <a>
-                          <i className="far fa-arrow-right"></i> Détails
+                        <a
+                          id={`voir-plus-moins-${service.id}`}
+                          style={{ fontWeight: "normal", color: "#a2a2a2" }}
+                        >
+                          (voir plus)
                         </a>
                       </Link>
                     </div>
                   </div>
                 </div>
+                <div className="text-center pt-20">
+                  <Link
+                    className="pt-35"
+                    href={`/service-details/${service.id}`}
+                  >
+                    <button
+                      type="submit"
+                      className="tp-btn-yellow"
+                      style={{
+                        backgroundColor: "#ED254E",
+                        color: "#F4FFFD",
+                        fontSize: 20,
+                      }}
+                    >
+                      Détails
+                    </button>
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div
-              id={`details-${service.id}`}
-              className={"accordion-collapse collapse"}
-              aria-labelledby={`heading-${service.id}`}
-              data-bs-parent="#details"
-            >
-              <br />
-              <p>{service.text_1}</p>
-              <p>{service.text_2}</p>
             </div>
           </div>
         </div>

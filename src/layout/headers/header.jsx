@@ -21,7 +21,9 @@ const Header = () => {
               <div className="col-xl-2 col-lg-2">
                 <div className="tp-logo">
                   <Link href="/">
-                    <a><img src="/assets/img/logo/logo1.png" alt="" /></a>
+                    <a>
+                      <img src="/assets/img/logo/logo1.png" alt="" />
+                    </a>
                     {/* <h1>Karohy</h1> */}
                   </Link>
                 </div>
