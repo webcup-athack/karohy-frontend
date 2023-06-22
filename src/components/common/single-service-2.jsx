@@ -19,13 +19,29 @@ const SingleServiceTwo = ({ service, border }) => {
             paddingTop: 20,
             paddingBottom: 30,
             height: 700,
+            paddingLeft: 10,
+            paddingRight: 10,
           }}
         >
           <div className="accordion accordion-items" id="details">
             <div className="d-flex">
-              <div className="tp-sv-content" style={{ flex: 1 }}>
-                <div className="tp-sv-img text-center">
-                  <img src={service.img} alt="" height={200} />
+              <div
+                className="tp-sv-content"
+                style={{
+                  flex: 1,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                }}
+              >
+                <div
+                  className="tp-sv-img text-center"
+                  style={{ position: "relative", width: "100%" }}
+                >
+                  <img
+                    src={service.img}
+                    alt=""
+                    style={{ maxWidth: "100%", height: 200 }}
+                  />
                 </div>
                 <p className="pt-35" style={{ fontSize: 16 }}>
                   <i
