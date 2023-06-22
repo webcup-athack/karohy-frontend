@@ -18,7 +18,7 @@ const SingleServiceTwo = ({ service, border }) => {
             borderBottomColor: "#ED254E",
             paddingTop: 20,
             paddingBottom: 30,
-            minHeight: 700,
+            minHeight: 600,
             paddingLeft: 10,
             paddingRight: 10,
             borderRadius: 10,
@@ -125,9 +125,9 @@ const SingleServiceTwo = ({ service, border }) => {
                 <div id={`before-${service.id}`} style={{}}>
                   <br />
                   <p>
-                    {service.text_1.length + service.text_2.length <= 100
+                    {service.text_1.length + service.text_2.length <= 70
                       ? service.text_1
-                      : service.text_1.substring(0, 100) + " ..."}
+                      : service.text_1.substring(0, 70) + " ..."}
                   </p>
                 </div>
                 <div
@@ -162,7 +162,7 @@ const SingleServiceTwo = ({ service, border }) => {
                   style={{
                     marginTop: -15,
                     display:
-                      service.text_1.length + service.text_2.length <= 100
+                      service.text_1.length + service.text_2.length <= 70
                         ? "none"
                         : "block",
                   }}
@@ -191,7 +191,7 @@ const SingleServiceTwo = ({ service, border }) => {
                   >
                     <button
                       type="submit"
-                      className="tp-btn-yellow"
+                      className="tp-btn-yellow-sm"
                       style={{
                         backgroundColor: "#ED254E",
                         color: "#F4FFFD",
