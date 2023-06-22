@@ -23,7 +23,7 @@ const SingleServiceTwo = ({ service, border }) => {
             <div className="d-flex">
               <div className="tp-sv-content" style={{ flex: 1 }}>
                 <div className="tp-sv-img text-center">
-                  <img src={service.img} alt="" width={200} />
+                  <img src={service.img} alt="" height={200} />
                 </div>
                 <p className="pt-35" style={{ fontSize: 25 }}>
                   <i
