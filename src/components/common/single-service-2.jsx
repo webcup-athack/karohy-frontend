@@ -3,7 +3,7 @@ import React from "react";
 
 const SingleServiceTwo = ({ service, border }) => {
   return (
-    <div className="col-lg-4 col-md-6 col-12" style={{}}>
+    <div className="col-lg-5 col-md-6 col-12">
       <div
         className="tp-sv-box wow tpfadeUp"
         data-wow-duration={service.duration}
@@ -12,15 +12,16 @@ const SingleServiceTwo = ({ service, border }) => {
         <div
           className={`tp-service-item ${border ? border : ""} mb-30 shadow-lg`}
           style={{
-            borderTopWidth: 10,
-            borderBottomWidth: 10,
+            borderTopWidth: 6,
+            borderBottomWidth: 6,
             borderTopColor: "#ED254E",
             borderBottomColor: "#ED254E",
             paddingTop: 20,
             paddingBottom: 30,
-            minHeight: 700,
+            minHeight: 600,
             paddingLeft: 10,
             paddingRight: 10,
+            borderRadius: 10,
           }}
         >
           <div className="accordion accordion-items" id="details">
@@ -34,15 +35,15 @@ const SingleServiceTwo = ({ service, border }) => {
                 }}
               >
                 <div
-                  className="tp-sv-img text-center"
-                  style={{ position: "relative", width: "100%" }}
-                >
-                  <img
-                    src={service.img}
-                    alt=""
-                    style={{ maxWidth: "100%", height: 200 }}
-                  />
-                </div>
+                  style={{
+                    backgroundImage: `url(${service.img})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    width: "100%",
+                    height: 200,
+                  }}
+                />
                 <p className="pt-35" style={{ fontSize: 16 }}>
                   <i
                     className="fas fa-star"
@@ -113,20 +114,20 @@ const SingleServiceTwo = ({ service, border }) => {
                     </b>
                   </p> */}
                 </h3>
-                <hr
+                <div
                   style={{
-                    color: "red",
+                    backgroundColor: "rgb(237, 37, 78)",
                     width: 100,
-                    borderWidth: 2,
+                    height: 3,
                     marginTop: -20,
                   }}
                 />
                 <div id={`before-${service.id}`} style={{}}>
                   <br />
                   <p>
-                    {service.text_1.length + service.text_2.length <= 100
+                    {service.text_1.length + service.text_2.length <= 70
                       ? service.text_1
-                      : service.text_1.substring(0, 100) + " ..."}
+                      : service.text_1.substring(0, 70) + " ..."}
                   </p>
                 </div>
                 <div
@@ -161,7 +162,7 @@ const SingleServiceTwo = ({ service, border }) => {
                   style={{
                     marginTop: -15,
                     display:
-                      service.text_1.length + service.text_2.length <= 100
+                      service.text_1.length + service.text_2.length <= 70
                         ? "none"
                         : "block",
                   }}
@@ -190,7 +191,7 @@ const SingleServiceTwo = ({ service, border }) => {
                   >
                     <button
                       type="submit"
-                      className="tp-btn-yellow"
+                      className="tp-btn-yellow-sm"
                       style={{
                         backgroundColor: "#ED254E",
                         color: "#F4FFFD",
