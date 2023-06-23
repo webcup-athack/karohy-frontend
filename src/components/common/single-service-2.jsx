@@ -35,15 +35,15 @@ const SingleServiceTwo = ({ service, border }) => {
                 }}
               >
                 <div
-                  className="tp-sv-img text-center"
-                  style={{ position: "relative", width: "100%" }}
-                >
-                  <img
-                    src={service.img}
-                    alt=""
-                    style={{ maxWidth: "100%", height: 200 }}
-                  />
-                </div>
+                  style={{
+                    backgroundImage: `url(${service.img})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    width: "100%",
+                    height: 200,
+                  }}
+                />
                 <p className="pt-35" style={{ fontSize: 16 }}>
                   <i
                     className="fas fa-star"
