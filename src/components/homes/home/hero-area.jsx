@@ -82,9 +82,10 @@ const HeroArea = () => {
 							<div className="col-xl-12 col-lg-12">
 								<div className="tp-hero-content">
 									<div className="tp-hero-text">
-										<div
-											className="col-xl-8 col-lg-8"
+										<HeadTextWrapper
+											className={`col-xl-8 col-lg-8 ${searched && 'hide'}`}
 											style={{ margin: 'auto' }}
+											isVisible={!searched}
 										>
 											<h1
 												className="tp-hero-title wow tpfadeUp"
@@ -103,7 +104,8 @@ const HeroArea = () => {
 											>
 												{text}
 											</p>
-										</div>
+										</HeadTextWrapper>
+
 										<div className="tpcontact__form tpcontact__form-3">
 											<SearchForm
 												stateSearch={searched}
@@ -111,6 +113,7 @@ const HeroArea = () => {
 											/>
 										</div>
 									</div>
+
 									{!searched && (
 										<ScrollToRecommendation>
 											<ScrollButton onClick={scrollToRecommendation}>
@@ -164,6 +167,15 @@ const HeroArea = () => {
 		</>
 	);
 };
+
+const HeadTextWrapper = styled.div`
+	opacity: 1;
+	max-height: ${({ isVisible }) => (isVisible ? '500px' : '0')};
+	transition: opacity 1.5s ease, max-height 1.5s ease;
+	&.hide {
+		opacity: 0;
+	}
+`;
 const ScrollButton = styled.button`
 	display: flex;
 	flex-direction: column;

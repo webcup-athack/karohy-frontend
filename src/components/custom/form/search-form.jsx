@@ -57,13 +57,13 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 		setSearchResult(randomServices);
 		setTimeout(() => {
 			setLoading(false);
-			if (buttonRef.current) {
-				buttonRef.current.scrollIntoView({
-					behavior: 'smooth',
-					block: 'start',
-					inline: 'nearest',
-				});
-			}
+			// if (buttonRef.current) {
+			// 	buttonRef.current.scrollIntoView({
+			// 		behavior: 'smooth',
+			// 		block: 'start',
+			// 		inline: 'nearest',
+			// 	});
+			// }
 		}, 2000);
 	};
 
@@ -100,6 +100,16 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 						</IconButton>
 					</InputGroup>
 				</form>
+				<StyledP
+					className={`${stateSearch && 'show'}`}
+					style={{ margin: '24px 0 0', padding: 0, width: '80%' }}
+				>
+					<small>
+						Karohy, l{"'"}espace numérique dynamique où vous pouvez
+						instantanément dénicher le prestataire de service idéal qui donnera
+						vie à vos projets avec brio!
+					</small>
+				</StyledP>
 			</div>
 			{searchResult.length > 0 && (
 				<ResultWrapper>
@@ -133,6 +143,13 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 	);
 };
 
+const StyledP = styled.p`
+	opacity: 0;
+	transition: opacity 2.5s ease;
+	&.show {
+		opacity: 1;
+	}
+`;
 const IconButton = styled.button``;
 const InputGroup = styled.div`
 	display: flex;
