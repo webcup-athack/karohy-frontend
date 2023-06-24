@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SearchForm from '../../custom/form/search-form';
 import ServiceCard from '../../custom/card/service-card';
 import BottomArrowIcon from '../../../imports/core/ui/BottomArrowIcon';
@@ -51,6 +51,16 @@ const { title, text, btn_text, btn_text_2, social_links, hero_img } =
 const HeroArea = () => {
 	const [searched, setSearched] = useState(false);
 	const recommandationWrapper = useRef(null);
+	const headTextRef = useRef(null);
+	useEffect(() => {
+		if (headTextRef.current && searched) {
+			const timeout = setTimeout(() => {
+				headTextRef.current.style.display = 'none';
+			}, 2000);
+
+			return () => clearTimeout(timeout);
+		}
+	}, [searched]);
 	const scrollToRecommendation = (e) => {
 		if (recommandationWrapper.current && e?.type === 'click') {
 			recommandationWrapper.current.scrollIntoView({
@@ -83,9 +93,10 @@ const HeroArea = () => {
 								<div className="tp-hero-content">
 									<div className="tp-hero-text">
 										<HeadTextWrapper
+											ref={headTextRef}
 											className={`col-xl-8 col-lg-8 ${searched && 'hide'}`}
 											style={{ margin: 'auto' }}
-											isVisible={!searched}
+											isvisible={!searched}
 										>
 											<h1
 												className="tp-hero-title wow tpfadeUp"
@@ -170,7 +181,7 @@ const HeroArea = () => {
 
 const HeadTextWrapper = styled.div`
 	opacity: 1;
-	max-height: ${({ isVisible }) => (isVisible ? '500px' : '0')};
+	max-height: ${({ isvisible }) => (isvisible ? '500px' : '0')};
 	transition: opacity 1.5s ease, max-height 1.5s ease;
 	&.hide {
 		opacity: 0;
