@@ -57,13 +57,13 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 		setSearchResult(randomServices);
 		setTimeout(() => {
 			setLoading(false);
-			// if (buttonRef.current) {
-			// 	buttonRef.current.scrollIntoView({
-			// 		behavior: 'smooth',
-			// 		block: 'start',
-			// 		inline: 'nearest',
-			// 	});
-			// }
+			if (buttonRef.current) {
+				buttonRef.current.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'nearest',
+				});
+			}
 		}, 2000);
 	};
 
