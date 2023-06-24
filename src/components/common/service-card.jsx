@@ -56,6 +56,7 @@ const ServiceCard = ({ service, border }) => {
 				<div
 					className={`tp-service-item ${border ? border : ''} mb-30`}
 					style={{
+						minHeight: '700px',
 						borderTopWidth: 6,
 						borderBottomWidth: 6,
 						borderTopColor: '#ED254E',
@@ -68,9 +69,10 @@ const ServiceCard = ({ service, border }) => {
 					<div className="accordion accordion-items" id="details">
 						<div className="d-flex">
 							<div className="tp-sv-content" style={{ flex: 1 }}>
-								<div className="tp-sv-img text-center">
-									<img src={service.img} alt="" width={200} />
-								</div>
+								<CardImage
+									className="tp-sv-img text-center"
+									src={service.img}
+								/>
 								<p
 									className="pt-35"
 									style={{ fontSize: 25, padding: '50px 0 25px' }}
@@ -249,6 +251,14 @@ const Card = styled.div`
 	@media (max-width: 768px) {
 		width: 100%;
 	}
+	min-height: 800px;
+`;
+const CardImage = styled.div`
+	height: 200px;
+	background-image: ${(p) => `url(${p.src})`};
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 `;
 const StarWrapper = styled.p`
 	padding: 0 !important;

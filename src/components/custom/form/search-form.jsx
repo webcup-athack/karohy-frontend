@@ -21,6 +21,11 @@ function getRandomIndexes(n, size) {
 	}
 	return numbers.slice(0, n);
 }
+function getRandomNumberInRange(a, b) {
+	const min = Math.min(a, b);
+	const max = Math.max(a, b);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 const SearchForm = ({ stateSearch, setStateSearch }) => {
 	// user
 	// const { user } = useSelector(state => state.auth);
@@ -52,40 +57,63 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 		setSearchResult(randomServices);
 		setTimeout(() => {
 			setLoading(false);
+			if (buttonRef.current) {
+				buttonRef.current.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'nearest',
+				});
+			}
 		}, 2000);
 	};
+
 	const handleSearchSubmit = (e) => {
 		handleSubmit(e);
 		// if (!errors?.msg && values?.msg) {
 		// 	getSearchResult(3);
 		// }
-		getSearchResult(3);
+		getSearchResult(getRandomNumberInRange(2, 5));
 		setStateSearch(true);
 	};
 
 	return (
 		<>
-			<form id="contact-form" onSubmit={handleSearchSubmit}>
-				<InputGroup>
-					<InputWrapper>
-						<StyledInput
-							value={values.msg}
-							onChange={handleChange}
-							onBlur={handleBlur}
-							name="msg"
-							placeholder="Que recherchez-vous ?"
-						/>
-					</InputWrapper>
-					{/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
-					<IconButton type="submit" ref={buttonRef}>
-						{loading ? <ReactLoading type="bars" color="red" /> : <SendIcon />}
-					</IconButton>
-				</InputGroup>
-			</form>
-
+			<div className="col-xl-8 col-lg-8" style={{ margin: 'auto' }}>
+				<form id="contact-form" onSubmit={handleSearchSubmit}>
+					<InputGroup>
+						<InputWrapper>
+							<StyledInput
+								value={values.msg}
+								onChange={handleChange}
+								onBlur={handleBlur}
+								name="msg"
+								placeholder="Que recherchez-vous ?"
+							/>
+						</InputWrapper>
+						{/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
+						<IconButton type="submit" ref={buttonRef}>
+							{loading ? (
+								<ReactLoading type="bars" color="red" />
+							) : (
+								<SendIcon />
+							)}
+						</IconButton>
+					</InputGroup>
+				</form>
+			</div>
 			{searchResult.length > 0 && (
 				<ResultWrapper>
-					{loading ? (
+					{!loading && (
+						<>
+							<StyledH1>Résultats</StyledH1>
+							<ResultFlex>
+								{searchResult.map((elem, i) => (
+									<ServiceCard key={i} service={elem} border={'sv-2-border'} />
+								))}
+							</ResultFlex>
+						</>
+					)}
+					{/* {loading ? (
 						<LoaderWrapper>
 							<ReactLoading type="spinningBubbles" color="#0bbfdc" />
 						</LoaderWrapper>
@@ -98,7 +126,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 								))}
 							</ResultFlex>
 						</>
-					)}
+					)} */}
 				</ResultWrapper>
 			)}
 		</>
@@ -116,15 +144,17 @@ const InputGroup = styled.div`
 	}
 `;
 const InputWrapper = styled.div`
-	width: 75%;
+	width: 60%;
 	max-height: 70px;
 	border-radius: 15px;
 	border-bottom: 4px solid #ed254e;
 	background: #fff;
 	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+	@media (max-width: 496px) {
+		width: 100%;
+	}
 `;
 const StyledInput = styled.input`
-	width: 40%;
 	flex-shrink: 0;
 	height: 70px;
 `;
