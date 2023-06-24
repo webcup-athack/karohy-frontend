@@ -2,17 +2,51 @@ import Link from "next/link";
 import React from "react";
 import { styled } from "styled-components";
 
-const Breadcrumb = ({ service, back_home = false }) => {
+const Breadcrumb2 = ({ service, back_home = false }) => {
   return (
     <section
       className="breadcrumb__area  breadcrumb__pt-310 include-bg p-relative"
-      style={{ backgroundImage: "url(/assets/img/breadcrum/ab-1.1.jpg)" }}
+      style={{ paddingBottom: 50, paddingTop: 200 }}
+      // style={{ backgroundImage: "url(/assets/img/breadcrum/ab-1.1.jpg)" }}
     >
-      <div className="ac-about-shape-img z-index-1">
-        <img src="/assets/img/breadcrum/ab-shape-1.1.jpg" alt="" />
+      <div className="tp-hero-area z-index-2 fix">
+        <div className="tp-hero-shape">
+          <div className="shape-circle-yellow d-none"></div>
+          <div className="shape-circle-blue"></div>
+          <div className="shape-one">
+            <img src="/assets/img/hero/shape-1.png" alt="" />
+          </div>
+        </div>
       </div>
-      <div className="container">
-        <div className="row">
+      {/* <div className="ac-about-shape-img z-index-1">
+        <img src="/assets/img/breadcrum/ab-shape-1.1.jpg" alt="" />
+      </div> */}
+      <div className="tp-hero-wapper">
+        {/* <div className="container"> */}
+        <div className="tp-hero-content">
+          <div
+            className="container d-flex justify-content-center align-items-center"
+            style={{
+              height: 400,
+              width: "100%",
+              borderRadius: 15,
+              border: "none",
+              borderBottom: "6px solid #ED254E",
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${service.img})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: "95%",
+                width: "100%",
+              }}
+            />
+          </div>
+        </div>
+        {/* <div className="row">
           <div className="col-xxl-12" style={{ padding: "0 24px" }}>
             <BreadcrumbContent className="breadcrumb__content p-relative z-index-1">
               <H3 className="breadcrumb__title">
@@ -59,8 +93,9 @@ const Breadcrumb = ({ service, back_home = false }) => {
               )}
             </BreadcrumbContent>
           </div>
-        </div>
+        </div> */}
       </div>
+      {/* </div> */}
     </section>
   );
 };
@@ -99,4 +134,4 @@ const SousCategorie = styled.span`
   color: #878787;
   font-size: 15;
 `;
-export default Breadcrumb;
+export default Breadcrumb2;
