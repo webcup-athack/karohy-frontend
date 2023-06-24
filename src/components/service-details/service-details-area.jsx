@@ -62,7 +62,10 @@ const ServiceDetailsArea = ({ service }) => {
                       display: "inline-block",
                     }}
                   >
-                    <H3 className="tp-title-sm service-details-space">
+                    <H3
+                      className="service-details-space"
+                      style={{ fontSize: 35 }}
+                    >
                       Détails
                     </H3>
                     <div
@@ -88,7 +91,10 @@ const ServiceDetailsArea = ({ service }) => {
                       display: "inline-block",
                     }}
                   >
-                    <H3 className="tp-title-sm service-details-space">
+                    <H3
+                      className="service-details-space"
+                      style={{ fontSize: 35 }}
+                    >
                       Gallerie
                     </H3>
                     <div
@@ -133,6 +139,33 @@ const ServiceDetailsArea = ({ service }) => {
                         }}
                       ></div>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mt-100 text-center">
+                <div className="col">
+                  <div
+                    className="tp-hero-text"
+                    style={{
+                      display: "inline-block",
+                    }}
+                  >
+                    <H3
+                      className="service-details-space"
+                      style={{ fontSize: 35 }}
+                    >
+                      Services similaires
+                    </H3>
+                    <div
+                      className="tp-hero-text"
+                      style={{
+                        height: 5,
+                        backgroundColor: "#ED254E",
+                        width: "120%",
+                        marginLeft: "50%",
+                        transform: "translate(-50%, 0%)",
+                      }}
+                    />
                   </div>
                 </div>
               </div>
