@@ -80,6 +80,62 @@ const ServiceDetailsArea = ({ service }) => {
                   </div>
                 </div>
               </div>
+              <div className="row text-center">
+                <div className="col">
+                  <div
+                    className="tp-hero-text"
+                    style={{
+                      display: "inline-block",
+                    }}
+                  >
+                    <H3 className="tp-title-sm service-details-space">
+                      Gallerie
+                    </H3>
+                    <div
+                      className="tp-hero-text"
+                      style={{
+                        height: 5,
+                        backgroundColor: "#ED254E",
+                        width: "200%",
+                        marginLeft: "50%",
+                        transform: "translate(-50%, 0%)",
+                      }}
+                    />
+                  </div>
+                  <div className="mt-100 d-flex align-items-center justify-content-center">
+                    <div
+                      style={{ position: "relative", width: 350, height: 350 }}
+                    >
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                          border: "1px solid #757575",
+                          transform: "rotate(-85deg)",
+                          zIndex: 1,
+                          backgroundColor: "yellow",
+                        }}
+                      ></div>
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                          border: "1px solid #757575",
+                          transform: "rotate(85deg)",
+                          zIndex: 1,
+                          backgroundColor: "cyan",
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Container>
           </div>
         </div>
