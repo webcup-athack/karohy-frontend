@@ -69,15 +69,43 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 
   const getSousCategoriesCorrespondantes = async () => {
     setLoading(true);
-    const token = "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";
+    const token = "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";
     const apiUrl = "https://api.openai.com/v1/chat/completions";
+    const sousCategories = [
+      {
+        _id: "1",
+        nom: "garagiste",
+        idcategorie: "1",
+      },
+      {
+        _id: "2",
+        nom: "maçon",
+        idcategorie: "2",
+      },
+      {
+        _id: "3",
+        nom: "décorateur",
+        idcategorie: "3",
+      },
+      {
+        _id: "4",
+        nom: "restaurant",
+        idcategorie: "4",
+      },
+    ];
+    const noms = sousCategories
+      .map((sousCategorie) => sousCategorie.nom)
+      .join(", ");
     const data = {
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: [
         {
           role: "user",
-          content:
-            "Avec les catégories suivantes (garagiste,maçon,décorateur,restaurant), lesquelles d'entre elles correspondent avec ce texte (j'ai faim)? Écris juste dans une liste les catégories correspondantes séparés juste par des virgules sans espaces entre elles en respectant la sensibilité à la casse.",
+          content: `Avec les catégories suivantes (${noms}), lesquelles d'entre elles correspondent avec ce texte (${
+            values.msg
+          })? Je veux qu'à partir du tableau que je vais te donner, tu réécris uniquement les catégories correspondantes en respectant la sensibilité à la casse et en respectant le format suivant: ${JSON.stringify(
+            sousCategories
+          )}. Si aucune catégorie ne correspond au texte, renvoies uniquement un tableau vide sans écrire autre chose.`,
         },
       ],
     };
@@ -93,7 +121,10 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
       });
 
       const result = await response.json();
-      console.log(result.choices[0].message.content);
+      const sousCategoriesCorrespondantes = JSON.parse(
+        result.choices[0].message.content
+      );
+      console.log(sousCategoriesCorrespondantes);
     } catch (error) {
       console.error("Error:", error);
     } finally {
