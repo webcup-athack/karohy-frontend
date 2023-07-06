@@ -69,7 +69,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 
   const getSousCategoriesCorrespondantes = async () => {
     setLoading(true);
-    const token = "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";
+    const token = "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";
     const apiUrl = "https://api.openai.com/v1/chat/completions";
     const sousCategories = [
       {
