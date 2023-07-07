@@ -98,11 +98,11 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               </li>
               <li>
                 <i className="fas fa-star"></i>
-                <a href="tel:261324806758">+261 32 48 067 58</a>
+                <a href="tel:261386626100">+261 38 66 261 00</a>
               </li>
               <li>
                 <i className="fas fa-star"></i>
-                <a href="mailto:Collaxmail@gmail.com">cupine2023@gmail.com</a>
+                <a href="mailto:services@karohy.mg">services@karohy.mg</a>
               </li>
             </ul>
           </div>
