@@ -99,6 +99,11 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
   };
   useEffect(() => getSousCategorieFromMongo(), []);
 
+  const [sousCategoriesCorrespondantes, setSousCategoriesCorrespondantes] =
+    useState([]);
+  useEffect(() => {
+    console.log(sousCategoriesCorrespondantes);
+  }, [sousCategoriesCorrespondantes]);
   const getSousCategoriesCorrespondantes = async () => {
     setLoading(true);
     const token1 = "sk";
@@ -106,9 +111,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
     const token3 = "si3SDG9T3BlbkFJLt";
     const token4 = "Z5UOin2e5YF8z9iI6n";
     const apiUrl = "https://api.openai.com/v1/chat/completions";
-    console.log("sousCategories");
-    console.log(sousCategories);
-    const sousCategories = [
+    const sousCategoriesTemp = [
       {
         _id: "1",
         nom: "garagiste",
@@ -130,7 +133,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
         idcategorie: "4",
       },
     ];
-    const noms = sousCategories
+    const noms = sousCategoriesTemp
       .map((sousCategorie) => sousCategorie.nom)
       .join(", ");
     const data = {
@@ -141,7 +144,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
           content: `Avec les catégories suivantes (${noms}), lesquelles d'entre elles correspondent avec ce texte (${
             values.msg
           })? Je veux qu'à partir du tableau que je vais te donner, tu réécris uniquement les catégories correspondantes en respectant la sensibilité à la casse et en respectant le format suivant: ${JSON.stringify(
-            sousCategories
+            sousCategoriesTemp
           )}. Si aucune catégorie ne correspond au texte, renvoies uniquement un tableau vide sans écrire autre chose.`,
         },
       ],
@@ -158,10 +161,9 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
       });
 
       const result = await response.json();
-      const sousCategoriesCorrespondantes = JSON.parse(
-        result.choices[0].message.content
+      setSousCategoriesCorrespondantes(
+        JSON.parse(result.choices[0].message.content)
       );
-      console.log(sousCategoriesCorrespondantes);
     } catch (error) {
       console.error("Error:", error);
     } finally {
