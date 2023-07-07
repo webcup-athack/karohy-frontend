@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect} from "react";
 import ReactLoading from "react-loading";
 import styled from "styled-components";
 import { toast } from "react-toastify";
@@ -66,6 +66,33 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
       }
     }, 2000);
   };
+
+  //TODO : get sous categorie
+  const [sousCategories, setSousCategories] = useState([]);
+  const getSousCategorieFromMongo= async () => {
+    const SOUS_CATEGORIE_URL = "https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find";
+    const SOUS_CATEGORIE_HEADERS = {
+        "Content-Type": "application/json",
+        "Access-Control-Request-Headers": "*",
+        "Access-Control-Allow-Origins": "*",
+        "api-key": "QKfROnuopjMWmMr64Cz8xz8O4Efk5wbWGo8ajfcu6SboYPjAof7F5dGv1MJTwD8h"
+    };
+    const SOUS_CATEGORIE_BODY = {
+        "collection":"sous_categories",
+        "database":"karohy",
+        "dataSource":"Cluster0",
+        "projection": {}
+    };
+    fetch(SOUS_CATEGORIE_URL, {
+        method: "POST",
+        headers: SOUS_CATEGORIE_HEADERS,
+        body: JSON.stringify(SOUS_CATEGORIE_BODY)
+    }).then(response => response.json()).then(data => {console.log(data);setSousCategories(data)}).catch((error) => console.error('Error:', error));
+  };
+  useEffect(
+    () => getSousCategorieFromMongo(),
+    []
+  );
 
   const getSousCategoriesCorrespondantes = async () => {
     setLoading(true);
