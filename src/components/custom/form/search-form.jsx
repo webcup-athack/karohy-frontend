@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React, { useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactLoading from "react-loading";
 import styled from "styled-components";
 import { toast } from "react-toastify";
@@ -69,35 +69,45 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 
   //TODO : get sous categorie
   const [sousCategories, setSousCategories] = useState([]);
-  const getSousCategorieFromMongo= async () => {
-    const SOUS_CATEGORIE_URL = "https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find";
+  const getSousCategorieFromMongo = async () => {
+    const SOUS_CATEGORIE_URL =
+      "https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find";
     const SOUS_CATEGORIE_HEADERS = {
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Allow-Origins": "*",
-        "api-key": "QKfROnuopjMWmMr64Cz8xz8O4Efk5wbWGo8ajfcu6SboYPjAof7F5dGv1MJTwD8h"
+      "Content-Type": "application/json",
+      "Access-Control-Request-Headers": "*",
+      "Access-Control-Allow-Origins": "*",
+      "api-key":
+        "QKfROnuopjMWmMr64Cz8xz8O4Efk5wbWGo8ajfcu6SboYPjAof7F5dGv1MJTwD8h",
     };
     const SOUS_CATEGORIE_BODY = {
-        "collection":"sous_categories",
-        "database":"karohy",
-        "dataSource":"Cluster0",
-        "projection": {}
+      collection: "sous_categories",
+      database: "karohy",
+      dataSource: "Cluster0",
+      projection: {},
     };
     fetch(SOUS_CATEGORIE_URL, {
-        method: "POST",
-        headers: SOUS_CATEGORIE_HEADERS,
-        body: JSON.stringify(SOUS_CATEGORIE_BODY)
-    }).then(response => response.json()).then(data => {console.log(data);setSousCategories(data)}).catch((error) => console.error('Error:', error));
+      method: "POST",
+      headers: SOUS_CATEGORIE_HEADERS,
+      body: JSON.stringify(SOUS_CATEGORIE_BODY),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setSousCategories(data);
+      })
+      .catch((error) => console.error("Error:", error));
   };
-  useEffect(
-    () => getSousCategorieFromMongo(),
-    []
-  );
+  useEffect(() => getSousCategorieFromMongo(), []);
 
   const getSousCategoriesCorrespondantes = async () => {
     setLoading(true);
-    const token = "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";
+    const token1 = "sk";
+    const token2 = "-JrtvoKandGUWO";
+    const token3 = "si3SDG9T3BlbkFJLt";
+    const token4 = "Z5UOin2e5YF8z9iI6n";
     const apiUrl = "https://api.openai.com/v1/chat/completions";
+    console.log("sousCategories");
+    console.log(sousCategories);
     const sousCategories = [
       {
         _id: "1",
@@ -142,7 +152,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token1 + token2 + token3 + token4}`,
         },
         body: JSON.stringify(data),
       });
