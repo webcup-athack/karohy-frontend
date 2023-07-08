@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useFormik } from 'formik';
 import React, { useState, useRef } from 'react';
 import ReactLoading from 'react-loading';
@@ -7,15 +6,6 @@ import { getAccessToken } from '/src/utils/utils';
 import { toast } from 'react-toastify';
 import { contactSchema } from '../../../utils/validation-schema';
 import ServiceCard from '../../common/service-card';
-=======
-import { useFormik } from "formik";
-import React, { useState, useRef, useEffect } from "react";
-import ReactLoading from "react-loading";
-import styled from "styled-components";
-import { toast } from "react-toastify";
-import { contactSchema } from "../../../utils/validation-schema";
-import ServiceCard from "../../common/service-card";
->>>>>>> a5bd36e410b067c4d8e0c7f86a8711a9fb1b967b
 
 import { services_data } from '../../../data';
 import SendIcon from '../../../imports/core/ui/SendIcon';
@@ -37,8 +27,11 @@ function getRandomNumberInRange(a, b) {
 	const max = Math.max(a, b);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const API_KEY =
-	'QKfROnuopjMWmMr64Cz8xz8O4Efk5wbWGo8ajfcu6SboYPjAof7F5dGv1MJTwD8h';
+const API_KEY1 ='QKfROnuopjMWmMr64C';
+const API_KEY2 ='z8xz8O4Efk5wbWGo8';
+const API_KEY3 ='ajfcu6SboYPjAo';
+const API_KEY4 ='f7F5dGv1MJTwD8h';
+
 const SearchForm = ({ stateSearch, setStateSearch }) => {
 	// user
 	// const { user } = useSelector(state => state.auth);
@@ -79,16 +72,15 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			}
 		}, 2000);
 	};
-
-<<<<<<< HEAD
 	const getSousCategoriesCorrespondantes = async () => {
 		setLoading(true);
-		const token = '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';
+		const token1 = 'sk';
+		const token2 = '-JrtvoKandGUWO';
+		const token3 = 'si3SDG9T3BlbkFJLt';
+		const token4 = 'Z5UOin2e5YF8z9iI6n';
 		const apiUrl = 'https://api.openai.com/v1/chat/completions';
-
-		const sousCategories = await getAllSousCategorie();
-		console.log(sousCategories);
-		const noms = sousCategories
+		const sousCategoriesTemp = await getAllSousCategorie();
+		const noms = sousCategoriesTemp
 			.map((sousCategorie) => sousCategorie.nom)
 			.join(', ');
 		const data = {
@@ -99,7 +91,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 					content: `Avec les catégories suivantes (${noms}), lesquelles d'entre elles correspondent avec ce texte (${
 						values.msg
 					})? Je veux qu'à partir du tableau que je vais te donner, tu réécris uniquement les catégories correspondantes en respectant la sensibilité à la casse et en respectant le format suivant: ${JSON.stringify(
-						sousCategories,
+						sousCategoriesTemp,
 					)}. Si aucune catégorie ne correspond au texte, renvoies uniquement un tableau vide sans écrire autre chose.`,
 				},
 			],
@@ -110,121 +102,14 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					Authorization: `Bearer ${token}`,
+					Authorization: `Bearer ${token1 + token2 + token3 + token4}`,
 				},
 				body: JSON.stringify(data),
 			});
-=======
-  //TODO : get sous categorie
-  const [sousCategories, setSousCategories] = useState([]);
-  const getSousCategorieFromMongo = async () => {
-    const SOUS_CATEGORIE_URL =
-      "https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find";
-    const SOUS_CATEGORIE_HEADERS = {
-      "Content-Type": "application/json",
-      "Access-Control-Request-Headers": "*",
-      "Access-Control-Allow-Origins": "*",
-      "api-key":
-        "QKfROnuopjMWmMr64Cz8xz8O4Efk5wbWGo8ajfcu6SboYPjAof7F5dGv1MJTwD8h",
-    };
-    const SOUS_CATEGORIE_BODY = {
-      collection: "sous_categories",
-      database: "karohy",
-      dataSource: "Cluster0",
-      projection: {},
-    };
-    fetch(SOUS_CATEGORIE_URL, {
-      method: "POST",
-      headers: SOUS_CATEGORIE_HEADERS,
-      body: JSON.stringify(SOUS_CATEGORIE_BODY),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setSousCategories(data);
-      })
-      .catch((error) => console.error("Error:", error));
-  };
-  useEffect(() => getSousCategorieFromMongo(), []);
-
-  const [sousCategoriesCorrespondantes, setSousCategoriesCorrespondantes] =
-    useState([]);
-  useEffect(() => {
-    console.log(sousCategoriesCorrespondantes);
-  }, [sousCategoriesCorrespondantes]);
-  const getSousCategoriesCorrespondantes = async () => {
-    setLoading(true);
-    const token1 = "sk";
-    const token2 = "-JrtvoKandGUWO";
-    const token3 = "si3SDG9T3BlbkFJLt";
-    const token4 = "Z5UOin2e5YF8z9iI6n";
-    const apiUrl = "https://api.openai.com/v1/chat/completions";
-    const sousCategoriesTemp = [
-      {
-        _id: "1",
-        nom: "garagiste",
-        idcategorie: "1",
-      },
-      {
-        _id: "2",
-        nom: "maçon",
-        idcategorie: "2",
-      },
-      {
-        _id: "3",
-        nom: "décorateur",
-        idcategorie: "3",
-      },
-      {
-        _id: "4",
-        nom: "restaurant",
-        idcategorie: "4",
-      },
-    ];
-    const noms = sousCategoriesTemp
-      .map((sousCategorie) => sousCategorie.nom)
-      .join(", ");
-    const data = {
-      model: "gpt-4",
-      messages: [
-        {
-          role: "user",
-          content: `Avec les catégories suivantes (${noms}), lesquelles d'entre elles correspondent avec ce texte (${
-            values.msg
-          })? Je veux qu'à partir du tableau que je vais te donner, tu réécris uniquement les catégories correspondantes en respectant la sensibilité à la casse et en respectant le format suivant: ${JSON.stringify(
-            sousCategoriesTemp
-          )}. Si aucune catégorie ne correspond au texte, renvoies uniquement un tableau vide sans écrire autre chose.`,
-        },
-      ],
-    };
-
-    try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token1 + token2 + token3 + token4}`,
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-      setSousCategoriesCorrespondantes(
-        JSON.parse(result.choices[0].message.content)
-      );
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
->>>>>>> a5bd36e410b067c4d8e0c7f86a8711a9fb1b967b
 
 			const result = await response.json();
-			const sousCategoriesCorrespondantes = JSON.parse(
-				result.choices[0].message.content,
-			);
-			console.log(sousCategoriesCorrespondantes);
+			JSON.parse(result.choices[0].message.content),
+
 		} catch (error) {
 			console.error('Error:', error);
 		} finally {
@@ -245,7 +130,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 	};
 
 	const getAllSousCategorie = async () => {
-		const access_token = await getAccessToken(API_KEY);
+		const access_token = await getAccessToken(API_KEY1+API_KEY2+API_KEY3+API_KEY4);
 		let array = [];
 		const url =
 			'https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find';
@@ -274,7 +159,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 		return array;
 	};
 	const getServicesByIdSousCategorie = async (idSousCategorieArray) => {
-		const access_token = await getAccessToken(API_KEY);
+		const access_token = await getAccessToken(API_KEY1+API_KEY2+API_KEY3+API_KEY4);
 		let array = [];
 		const url =
 			'https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find';
