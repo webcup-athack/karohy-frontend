@@ -6,7 +6,7 @@ export const animationCreate = () => {
 	}
 	new WOW.WOW({ live: false }).init();
 };
-export const getAccessToken = async (api_key) => {
+export const getAccessToken = async () => {
 	let access_token = localStorage.getItem('access_token');
 	const expired = localStorage.getItem('access_token_expiry')
 		? Number(localStorage.getItem('access_token_expiry')) <
@@ -21,17 +21,18 @@ export const getAccessToken = async (api_key) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				key: api_key,
+				key: process.env.NEXT_PUBLIC_MONGODB_API_KEY,
 			}),
 		})
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				const decodedToken = jwt_decode(data.access_token);
 				localStorage.setItem('access_token', data.access_token);
 				localStorage.setItem('access_token_expiry', decodedToken.exp);
 				access_token = data.access_token;
 			})
-			.catch((error) => console.error('Error:', error));
+			.catch((error) => console.error('Error access data:', error));
 	}
 	return access_token;
 };

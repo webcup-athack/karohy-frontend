@@ -12,8 +12,6 @@ const hero_contents = {
 			Karohy, l{"'"}espace numérique dynamique où vous pouvez instantanément
 			dénicher le prestataire de service idéal qui donnera vie à vos projets
 			avec brio!
-			<br />
-			TEST API KEY {process.env.NEXT_PUBLIC_API_KEY}
 		</small>
 	),
 	btn_text: 'Visit Case Studies',
@@ -98,7 +96,7 @@ const HeroArea = () => {
 											ref={headTextRef}
 											className={`col-xl-8 col-lg-8 ${searched && 'hide'}`}
 											style={{ margin: 'auto' }}
-											isvisible={!searched}
+											isvisible={!searched ? 1 : 0}
 										>
 											<h1
 												className="tp-hero-title wow tpfadeUp"

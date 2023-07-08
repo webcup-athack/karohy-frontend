@@ -50,8 +50,8 @@ const ServiceCard = ({ service, border }) => {
 			</div> */}
 			<div
 				className="tp-sv-box wow"
-				data-wow-duration={service.duration}
-				data-wow-delay={service.delay}
+				data-wow-duration=".5s"
+				data-wow-delay=".8s"
 			>
 				<div
 					className={`tp-service-item ${border ? border : ''} mb-30`}
@@ -71,7 +71,8 @@ const ServiceCard = ({ service, border }) => {
 							<div className="tp-sv-content" style={{ flex: 1 }}>
 								<CardImage
 									className="tp-sv-img text-center"
-									src={service.img}
+									src={service?.logo?.lien}
+									alt={service?.logo?.alt}
 								/>
 								<p
 									className="pt-35"
@@ -80,43 +81,43 @@ const ServiceCard = ({ service, border }) => {
 									<i
 										className="fas fa-star"
 										style={{
-											color: service.reputation >= 1 ? '#ffe936' : '',
+											color: service?.note >= 1 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service.reputation >= 2 ? '#ffe936' : '',
+											color: service?.note >= 2 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service.reputation >= 3 ? '#ffe936' : '',
+											color: service?.note >= 3 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service.reputation >= 4 ? '#ffe936' : '',
+											color: service?.note >= 4 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service.reputation >= 5 ? '#ffe936' : '',
+											color: service?.note >= 5 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
-									&nbsp;<span>({service.stars})</span>
+									&nbsp;<span>({service?.note})</span>
 								</p>
 								<h3 className=" tp-sv-title pt-20" style={{ padding: 0 }}>
-									<Link href={`/service-details/${service.id}`}>
-										<a>{service.title}</a>
+									<Link href={`/service-details/${service?._id}`}>
+										<a>{service?.nom}</a>
 									</Link>
 									{/* <p>
                     <b
@@ -154,30 +155,31 @@ const ServiceCard = ({ service, border }) => {
 										marginTop: -20,
 									}}
 								/>
-								<div id={`before-${service.id}`}>
+								<div id={`before-${service?._id}`}>
 									<br />
 									<p style={{ padding: '0 0 10px' }}>
-										{service.text_1.length + (service.text_2 || []).length <=
+										{service?.description.length +
+											(service?.description || []).length <=
 										100
-											? service.text_1
-											: service.text_1.substring(0, 100) + ' ...'}
+											? service?.description
+											: service?.description.substring(0, 100) + ' ...'}
 									</p>
 								</div>
 								<div
-									id={`details-${service.id}`}
+									id={`details-${service?._id}`}
 									className={'accordion-collapse collapse'}
-									aria-labelledby={`heading-${service.id}`}
+									aria-labelledby={`heading-${service?._id}`}
 									data-bs-parent="#details"
 								>
 									<br />
-									<p>{service.text_1}</p>
-									<p style={{ padding: '0 0 10px' }}>{service.text_2}</p>
+									<p>{service?.description}</p>
+									<p style={{ padding: '0 0 10px' }}>{service?.description}</p>
 								</div>
 								<div
 									id={`heading-${service.id}`}
 									onClick={() => {
 										document.getElementById(
-											`before-${service.id}`,
+											`before-${service?._id}`,
 										).style.display =
 											document.getElementById(`before-${service.id}`).style
 												.display != 'none'
@@ -185,9 +187,9 @@ const ServiceCard = ({ service, border }) => {
 												: 'block';
 
 										document.getElementById(
-											`voir-plus-moins-${service.id}`,
+											`voir-plus-moins-${service?._id}`,
 										).innerHTML =
-											document.getElementById(`voir-plus-moins-${service.id}`)
+											document.getElementById(`voir-plus-moins-${service?._id}`)
 												.innerHTML != '(voir plus)'
 												? '(voir plus)'
 												: '(voir moins)';
@@ -195,8 +197,8 @@ const ServiceCard = ({ service, border }) => {
 									style={{
 										marginTop: -15,
 										display:
-											(service.text_1 || []).length +
-												(service.text_2 || []).length <=
+											(service?.description || []).length +
+												(service?.description || []).length <=
 											100
 												? 'none'
 												: 'block',
@@ -205,13 +207,13 @@ const ServiceCard = ({ service, border }) => {
 								>
 									<div
 										data-bs-toggle="collapse"
-										data-bs-target={`#details-${service.id}`}
-										aria-controls={`details-${service.id}`}
+										data-bs-target={`#details-${service?._id}`}
+										aria-controls={`details-${service?._id}`}
 									>
 										<div className="tp-sv-link">
 											<Link href={''}>
 												<a
-													id={`voir-plus-moins-${service.id}`}
+													id={`voir-plus-moins-${service?._id}`}
 													style={{ fontWeight: 'normal', color: '#a2a2a2' }}
 												>
 													(voir plus)
@@ -223,7 +225,7 @@ const ServiceCard = ({ service, border }) => {
 								<div className="text-center pt-20">
 									<Link
 										className="pt-35"
-										href={`/service-details/${service.id}`}
+										href={`/service-details/${service?._id}`}
 									>
 										<button
 											type="submit"

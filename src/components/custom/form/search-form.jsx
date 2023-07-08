@@ -11,31 +11,7 @@ import { services_data } from '../../../data';
 import SendIcon from '../../../imports/core/ui/SendIcon';
 import ErrorMsg from './error-msg';
 
-function getRandomIndexes(n, size) {
-	const numbers = [];
-	for (let i = 0; i < size; i++) {
-		numbers.push(i);
-	}
-	for (let i = numbers.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[numbers[i], numbers[j]] = [numbers[j], numbers[i]];
-	}
-	return numbers.slice(0, n);
-}
-function getRandomNumberInRange(a, b) {
-	const min = Math.min(a, b);
-	const max = Math.max(a, b);
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-const API_KEY1 = 'QKfROnuopjMWmMr64C';
-const API_KEY2 = 'z8xz8O4Efk5wbWGo8';
-const API_KEY3 = 'ajfcu6SboYPjAo';
-const API_KEY4 = 'f7F5dGv1MJTwD8h';
-
 const SearchForm = ({ stateSearch, setStateSearch }) => {
-	// user
-	// const { user } = useSelector(state => state.auth);
-	// console.log(user)
 	const [searchResult, setSearchResult] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const buttonRef = useRef(null);
@@ -52,15 +28,9 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			},
 		});
 
-	const getSearchResult = (number) => {
+	const showServiceSearchResult = (services) => {
 		buttonRef.current.scrollIntoView({ behavior: 'smooth' });
-		// setLoading(true);
-		const randomIndexes = getRandomIndexes(number, services_data.length);
-		const randomServices = [];
-		for (let i = 0; i < randomIndexes.length; i++) {
-			randomServices.push(services_data[randomIndexes[i]]);
-		}
-		setSearchResult(randomServices);
+		setSearchResult(services);
 		setTimeout(() => {
 			// setLoading(false);
 			if (buttonRef.current) {
@@ -72,12 +42,24 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			}
 		}, 2000);
 	};
-	const getSousCategoriesCorrespondantes = async () => {
+	const handleSearchSubmit = async (e) => {
+		handleSubmit(e);
+		// if (!errors?.msg && values?.msg) {
+		// 	getSearchResult(3);
+		// }
 		setLoading(true);
-		const token1 = 'sk';
-		const token2 = '-JrtvoKandGUWO';
-		const token3 = 'si3SDG9T3BlbkFJLt';
-		const token4 = 'Z5UOin2e5YF8z9iI6n';
+		const sousCategoriesCorrespondantes =
+			await getSousCategoriesCorrespondantes();
+		const servicesCorrespondantes = await getServicesByIdSousCategorie(
+			sousCategoriesCorrespondantes,
+		);
+		console.log(servicesCorrespondantes);
+		showServiceSearchResult(servicesCorrespondantes);
+		setLoading(false);
+		setStateSearch(true);
+	};
+	const getSousCategoriesCorrespondantes = async () => {
+		let array = [];
 		const apiUrl = 'https://api.openai.com/v1/chat/completions';
 		const sousCategoriesTemp = await getAllSousCategorie();
 		const noms = sousCategoriesTemp
@@ -92,7 +74,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 						values.msg
 					})? Je veux qu'à partir du tableau que je vais te donner, tu réécris uniquement les catégories correspondantes en respectant la sensibilité à la casse et en respectant le format suivant: ${JSON.stringify(
 						sousCategoriesTemp,
-					)}. Si aucune catégorie ne correspond au texte, renvoies uniquement un tableau vide sans écrire autre chose.`,
+					)}. S i aucune catégorie ne correspond au texte, renvoies uniquement un tableau vide sans écrire autre chose.`,
 				},
 			],
 		};
@@ -102,38 +84,22 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					Authorization: `Bearer ${token1 + token2 + token3 + token4}`,
+					Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
 				},
 				body: JSON.stringify(data),
 			});
 
 			const result = await response.json();
-			JSON.parse(result.choices[0].message.content)
-
-			console.log(JSON.parse(result.choices[0].message.content));
+			const resultArray = JSON.parse(result.choices[0].message.content);
+			array = resultArray.map((e) => e.idcategorie);
 		} catch (error) {
 			console.error('Error:', error);
-		} finally {
-			setLoading(false);
 		}
-	};
-
-	const handleSearchSubmit = async (e) => {
-		handleSubmit(e);
-		// if (!errors?.msg && values?.msg) {
-		// 	getSearchResult(3);
-		// }
-		console.log('ayee');
-		await getAccessToken();
-		await getSousCategoriesCorrespondantes();
-		getSearchResult(getRandomNumberInRange(2, 5));
-		setStateSearch(true);
+		return array;
 	};
 
 	const getAllSousCategorie = async () => {
-		const access_token = await getAccessToken(
-			API_KEY1 + API_KEY2 + API_KEY3 + API_KEY4,
-		);
+		const access_token = await getAccessToken();
 		let array = [];
 		const url =
 			'https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find';
@@ -152,14 +118,16 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			body: JSON.stringify(body),
 		})
 			.then((response) => response.json())
-			.then((data) => (array = data.documents))
+			.then((data) => {
+				if (data.documents) {
+					array = data.documents;
+				}
+			})
 			.catch((error) => console.error('Error:', error));
 		return array;
 	};
 	const getServicesByIdSousCategorie = async (idSousCategorieArray) => {
-		const access_token = await getAccessToken(
-			API_KEY1 + API_KEY2 + API_KEY3 + API_KEY4,
-		);
+		const access_token = await getAccessToken();
 		let array = [];
 		const url =
 			'https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find';
@@ -180,7 +148,11 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			body: JSON.stringify(body),
 		})
 			.then((response) => response.json())
-			.then((data) => (array = data.documents))
+			.then((data) => {
+				if (data.documents) {
+					array = data.documents;
+				}
+			})
 			.catch((error) => console.error('Error:', error));
 		return array;
 	};
@@ -248,10 +220,21 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 					)} */}
 				</ResultWrapper>
 			)}
+			{stateSearch && !loading && searchResult.length === 0 && (
+				<div className="col-xl-8 col-lg-8" style={{ margin: 'auto' }}>
+					<NoResultText>
+						Aucun service n'est actuellement disponible ou ne correspond à votre
+						description
+					</NoResultText>
+				</div>
+			)}
 		</>
 	);
 };
 
+const NoResultText = styled.p`
+	margin-top: 100px;
+`;
 const StyledP = styled.p`
 	opacity: 0;
 	transition: opacity 2.5s ease;
@@ -261,22 +244,12 @@ const StyledP = styled.p`
 `;
 const IconButton = styled.button``;
 const InputGroup = styled.div`
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  @media (max-width: 496px) {
-  }
-=======
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: 10px;
 	@media (max-width: 496px) {
-		flex-direction: column;
 	}
->>>>>>> 9cf98f40feca2b4e1a6f75450192153ee6980597
 `;
 const InputWrapper = styled.div`
 	width: 60%;
