@@ -108,7 +108,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			});
 
 			const result = await response.json();
-			JSON.parse(result.choices[0].message.content),
+			JSON.parse(result.choices[0].message.content)
 
 		} catch (error) {
 			console.error('Error:', error);
