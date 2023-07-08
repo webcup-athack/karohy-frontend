@@ -27,10 +27,10 @@ function getRandomNumberInRange(a, b) {
 	const max = Math.max(a, b);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const API_KEY1 ='QKfROnuopjMWmMr64C';
-const API_KEY2 ='z8xz8O4Efk5wbWGo8';
-const API_KEY3 ='ajfcu6SboYPjAo';
-const API_KEY4 ='f7F5dGv1MJTwD8h';
+const API_KEY1 = 'QKfROnuopjMWmMr64C';
+const API_KEY2 = 'z8xz8O4Efk5wbWGo8';
+const API_KEY3 = 'ajfcu6SboYPjAo';
+const API_KEY4 = 'f7F5dGv1MJTwD8h';
 
 const SearchForm = ({ stateSearch, setStateSearch }) => {
 	// user
@@ -108,8 +108,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			});
 
 			const result = await response.json();
-			JSON.parse(result.choices[0].message.content),
-
+			console.log(JSON.parse(result.choices[0].message.content));
 		} catch (error) {
 			console.error('Error:', error);
 		} finally {
@@ -130,7 +129,9 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 	};
 
 	const getAllSousCategorie = async () => {
-		const access_token = await getAccessToken(API_KEY1+API_KEY2+API_KEY3+API_KEY4);
+		const access_token = await getAccessToken(
+			API_KEY1 + API_KEY2 + API_KEY3 + API_KEY4,
+		);
 		let array = [];
 		const url =
 			'https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find';
@@ -149,17 +150,14 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			body: JSON.stringify(body),
 		})
 			.then((response) => response.json())
-			.then(
-				(data) =>
-					(array = data.documents.map((e, i) => {
-						return { ...e, idcategorie: i + 1 };
-					})),
-			)
+			.then((data) => (array = data.documents))
 			.catch((error) => console.error('Error:', error));
 		return array;
 	};
 	const getServicesByIdSousCategorie = async (idSousCategorieArray) => {
-		const access_token = await getAccessToken(API_KEY1+API_KEY2+API_KEY3+API_KEY4);
+		const access_token = await getAccessToken(
+			API_KEY1 + API_KEY2 + API_KEY3 + API_KEY4,
+		);
 		let array = [];
 		const url =
 			'https://data.mongodb-api.com/app/data-otnel/endpoint/data/v1/action/find';
