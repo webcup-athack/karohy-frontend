@@ -262,7 +262,6 @@ const InputGroup = styled.div`
   align-items: center;
   gap: 10px;
   @media (max-width: 496px) {
-    flex-direction: column;
   }
 `;
 const InputWrapper = styled.div`

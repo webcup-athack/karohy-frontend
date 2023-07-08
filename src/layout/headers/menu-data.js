@@ -6,13 +6,13 @@ const menu_data = [
     title: "Accueil",
     link: "/",
   },
-  {
-    id: 2,
-    mega_menu: false,
-    has_dropdown: false,
-    title: "À propos",
-    link: "/portfolio",
-  },
+  // {
+  //   id: 2,
+  //   mega_menu: false,
+  //   has_dropdown: false,
+  //   title: "À propos",
+  //   link: "/portfolio",
+  // },
   {
     id:3,
     mega_menu:true,
