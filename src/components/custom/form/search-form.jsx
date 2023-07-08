@@ -259,6 +259,14 @@ const StyledP = styled.p`
 `;
 const IconButton = styled.button``;
 const InputGroup = styled.div`
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  @media (max-width: 496px) {
+  }
+=======
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -266,6 +274,7 @@ const InputGroup = styled.div`
 	@media (max-width: 496px) {
 		flex-direction: column;
 	}
+>>>>>>> 9cf98f40feca2b4e1a6f75450192153ee6980597
 `;
 const InputWrapper = styled.div`
 	width: 60%;
