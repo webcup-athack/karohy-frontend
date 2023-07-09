@@ -176,12 +176,12 @@ const ServiceCard = ({ service, border }) => {
 									<p style={{ padding: '0 0 10px' }}>{service?.description}</p>
 								</div>
 								<div
-									id={`heading-${service.id}`}
+									id={`heading-${service._id}`}
 									onClick={() => {
 										document.getElementById(
 											`before-${service?._id}`,
 										).style.display =
-											document.getElementById(`before-${service.id}`).style
+											document.getElementById(`before-${service._id}`).style
 												.display != 'none'
 												? 'none'
 												: 'block';
