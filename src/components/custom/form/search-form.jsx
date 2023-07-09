@@ -222,8 +222,8 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			{stateSearch && !loading && searchResult.length === 0 && (
 				<div className="col-xl-8 col-lg-8" style={{ margin: 'auto' }}>
 					<NoResultText>
-						Aucun service n'est actuellement disponible ou ne correspond à votre
-						description
+						Aucun service n&apos;est actuellement disponible ou ne correspond à
+						votre description
 					</NoResultText>
 				</div>
 			)}
