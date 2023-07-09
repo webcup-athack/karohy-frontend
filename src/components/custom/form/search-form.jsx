@@ -53,7 +53,6 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 		const servicesCorrespondantes = await getServicesByIdSousCategorie(
 			sousCategoriesCorrespondantes,
 		);
-		console.log(servicesCorrespondantes);
 		showServiceSearchResult(servicesCorrespondantes);
 		setLoading(false);
 		setStateSearch(true);
@@ -91,7 +90,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 
 			const result = await response.json();
 			const resultArray = JSON.parse(result.choices[0].message.content);
-			array = resultArray.map((e) => e.idcategorie);
+			array = resultArray.map((e) => e._id);
 		} catch (error) {
 			console.error('Error:', error);
 		}
