@@ -225,7 +225,8 @@ const ServiceCard = ({ service, border }) => {
 								<div className="text-center pt-20">
 									<Link
 										className="pt-35"
-										href={`/service-details/${service?._id}`}
+										// href={`/service-details/${service?._id}`}
+										href="#"
 									>
 										<button
 											type="submit"
