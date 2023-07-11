@@ -96,7 +96,7 @@ const HeroArea = () => {
 											ref={headTextRef}
 											className={`col-xl-8 col-lg-8 ${searched && 'hide'}`}
 											style={{ margin: 'auto' }}
-											isvisible={!searched}
+											isvisible={!searched ? 1 : 0}
 										>
 											<h1
 												className="tp-hero-title wow tpfadeUp"
@@ -125,7 +125,7 @@ const HeroArea = () => {
 										</div>
 									</div>
 
-									{!searched && (
+									{/* {!searched && (
 										<ScrollToRecommendation>
 											<ScrollButton onClick={scrollToRecommendation}>
 												<BottomArrowIcon />
@@ -134,7 +134,7 @@ const HeroArea = () => {
 												</span>
 											</ScrollButton>
 										</ScrollToRecommendation>
-									)}
+									)} */}
 
 									{/* <div className="tp-hero-button mb-140 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
                     <Link href="/portfolio">
