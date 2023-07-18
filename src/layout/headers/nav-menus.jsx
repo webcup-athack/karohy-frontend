@@ -32,7 +32,7 @@ const NavMenus = () => {
           {menu.has_dropdown && (
             <ul className="submenu text-start">
               {menu.sub_menus.map((sub_m, i) => (
-                <li key={i} style={{ marginTop: 20, marginBottom: 20 }}>
+                <li key={i}>
                   <Link href={sub_m.link}>
                     <a>{sub_m.title}</a>
                   </Link>
