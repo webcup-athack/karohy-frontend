@@ -1,8 +1,19 @@
 import Link from "next/link";
-import React from "react";
-import menu_data from "./menu-data";
+import React, { useState, useEffect } from "react";
+import getMenuData from "./menu-data";
 
 const NavMenus = () => {
+  const [menu_data, setMenu_data] = useState([]);
+
+  useEffect(() => {
+    const fetchMenuData = async () => {
+      const data = await getMenuData();
+      setMenu_data(data);
+    };
+
+    fetchMenuData();
+  }, []);
+
   return (
     <ul>
       {menu_data.map((menu, i) => (
@@ -21,10 +32,21 @@ const NavMenus = () => {
           {menu.has_dropdown && (
             <ul className="submenu text-start">
               {menu.sub_menus.map((sub_m, i) => (
-                <li key={i}>
+                <li key={i} style={{ marginTop: 20, marginBottom: 20 }}>
                   <Link href={sub_m.link}>
                     <a>{sub_m.title}</a>
                   </Link>
+                  <ul>
+                    {sub_m.sous_categories.map((sous_cat, j) => (
+                      <li key={j}>
+                        <Link href={sous_cat._id}>
+                          <a style={{ color: "#a09f9f", fontSize: "medium" }}>
+                            {sous_cat.nom}
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               ))}
             </ul>

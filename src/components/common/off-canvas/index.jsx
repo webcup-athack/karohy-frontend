@@ -1,6 +1,6 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import menu_data from "../../../layout/headers/menu-data";
+import React, { useEffect, useState } from "react";
+import getMenuData from "../../../layout/headers/menu-data";
 import Image from "next/image";
 const sidebar_contents = {
   title: <>Trouvez le prestataire idéal !</>,
@@ -14,7 +14,17 @@ const sidebar_contents = {
 const { inst_imgs, title } = sidebar_contents;
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
+  const [menu_data, setMenu_data] = useState([]);
   const [navTitle, setNavTitle] = useState("");
+
+  useEffect(() => {
+    const fetchMenuData = async () => {
+      const data = await getMenuData();
+      setMenu_data(data);
+    };
+
+    fetchMenuData();
+  }, []);
 
   const openMobileMenu = (menu) => {
     if (navTitle === menu) {
@@ -29,7 +39,12 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <div className={`tpoffcanvas ${isOpen ? "opened" : ""}`}>
           <div className="tpoffcanvas__logo">
             <Link href="/">
-              <Image src='/assets/img/logo/logo1.png' alt="logo karohy" width={200} height={70}/>
+              <Image
+                src="/assets/img/logo/logo1.png"
+                alt="logo karohy"
+                width={200}
+                height={70}
+              />
             </Link>
           </div>
           <div
@@ -72,6 +87,17 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                       {menu?.sub_menus?.map((sub, i) => (
                         <li key={i}>
                           <Link href={`${sub.link}`}>{sub.title}</Link>
+                          <ul>
+                            {sub.sous_categories.map((sous_cat, j) => (
+                              <li key={j}>
+                                <Link href={sous_cat._id}>
+                                  <a style={{ fontSize: 15, color: "gray" }}>
+                                    {sous_cat.nom}
+                                  </a>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         </li>
                       ))}
                     </ul>
