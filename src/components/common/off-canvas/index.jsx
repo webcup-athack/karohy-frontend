@@ -91,7 +91,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                             {sub.sous_categories.map((sous_cat, j) => (
                               <li key={j}>
                                 <Link href={sous_cat._id}>
-                                  <a style={{ fontSize: 15, color: "gray" }}>
+                                  <a style={{ color: "gray" }}>
                                     {sous_cat.nom}
                                   </a>
                                 </Link>
