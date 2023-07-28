@@ -136,7 +136,9 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
 			database: 'karohy',
 			dataSource: 'Cluster0',
 			filter: {
-				sous_categories: idSousCategorieArray,
+				sous_categories: {
+					$in: idSousCategorieArray,
+				},
 			},
 		};
 		await fetch(url, {
