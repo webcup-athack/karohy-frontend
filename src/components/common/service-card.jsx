@@ -81,41 +81,44 @@ const ServiceCard = ({ service, border }) => {
 									<i
 										className="fas fa-star"
 										style={{
-											color: service?.note >= 1 ? '#ffe936' : '',
+											color: service?.note >= 20 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service?.note >= 2 ? '#ffe936' : '',
+											color: service?.note >= 40 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service?.note >= 3 ? '#ffe936' : '',
+											color: service?.note >= 60 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service?.note >= 4 ? '#ffe936' : '',
+											color: service?.note >= 80 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
 									<i
 										className="fas fa-star"
 										style={{
-											color: service?.note >= 5 ? '#ffe936' : '',
+											color: service?.note >= 100 ? '#ffe936' : '',
 											margin: 2,
 										}}
 									></i>
-									&nbsp;<span>({service?.note})</span>
+									&nbsp;<span>({service?.note}%)</span>
 								</p>
-								<h3 className=" tp-sv-title pt-20" style={{ padding: 0 }}>
+								<h3
+									className=" tp-sv-title pt-20"
+									style={{ padding: 0, margin: 0 }}
+								>
 									<Link href={`/service-details/${service?._id}`}>
 										<a>{service?.nom}</a>
 									</Link>
@@ -147,12 +150,48 @@ const ServiceCard = ({ service, border }) => {
                     </b>
                   </p> */}
 								</h3>
+								<LocationInfosWrapper>
+									{service?.lieu?.length > 0 && (
+										<span>{service.lieu.join('; ')}</span>
+									)}
+									{service?.contact?.tel?.length > 0 && (
+										<LocationList>
+											Tel:
+											{service.contact.tel.map((t, i) => (
+												<a href={`tel:${t}`}>
+													<LocationLabel>{t}</LocationLabel>
+												</a>
+											))}
+										</LocationList>
+									)}
+									{service?.contact?.email && (
+										<LocationText>
+											Email:&nbsp;&nbsp;
+											<LocationLabel>{service.contact.email}</LocationLabel>
+										</LocationText>
+									)}
+									{service?.contact?.reseau?.length > 0 && (
+										<LocationList>
+											Lien(s):
+											{service.contact.reseau.map((r, i) => (
+												<a
+													key={i}
+													href={r?.lien}
+													target="_blank"
+													rel="noopener"
+												>
+													<LocationLabel>{r?.lien}</LocationLabel>
+												</a>
+											))}
+										</LocationList>
+									)}
+								</LocationInfosWrapper>
 								<div
 									style={{
 										background: '#ED254E',
 										width: 100,
 										height: 3,
-										marginTop: -20,
+										marginTop: -0,
 									}}
 								/>
 								<div id={`before-${service?._id}`}>
@@ -165,7 +204,7 @@ const ServiceCard = ({ service, border }) => {
 											: service?.description.substring(0, 100) + ' ...'}
 									</p>
 								</div>
-								<div
+								{/* <div
 									id={`details-${service?._id}`}
 									className={'accordion-collapse collapse'}
 									aria-labelledby={`heading-${service?._id}`}
@@ -221,25 +260,25 @@ const ServiceCard = ({ service, border }) => {
 											</Link>
 										</div>
 									</div>
-								</div>
+								</div> */}
 								<div className="text-center pt-20">
-									<Link
+									{/* <Link
 										className="pt-35"
 										// href={`/service-details/${service?._id}`}
 										href="#"
+									> */}
+									<button
+										type="submit"
+										className="tp-btn-yellow"
+										style={{
+											backgroundColor: '#ED254E',
+											color: '#F4FFFD',
+											fontSize: 20,
+										}}
 									>
-										<button
-											type="submit"
-											className="tp-btn-yellow"
-											style={{
-												backgroundColor: '#ED254E',
-												color: '#F4FFFD',
-												fontSize: 20,
-											}}
-										>
-											Détails
-										</button>
-									</Link>
+										Détails
+									</button>
+									{/* </Link> */}
 								</div>
 							</div>
 						</div>
@@ -249,6 +288,25 @@ const ServiceCard = ({ service, border }) => {
 		</Card>
 	);
 };
+
+const LocationInfosWrapper = styled.div`
+	color: grey;
+	font-size: 12px;
+	line-height: 1.5;
+	margin-bottom: 12px;
+`;
+const LocationText = styled.span`
+	line-height: 1;
+`;
+const LocationLabel = styled.span`
+	color: rgb(237, 37, 78);
+`;
+const LocationList = styled.div`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 8px;
+`;
 const Card = styled.div`
 	width: 48%;
 	@media (max-width: 768px) {
@@ -258,7 +316,8 @@ const Card = styled.div`
 `;
 const CardImage = styled.div`
 	height: 200px;
-	background-image: ${(p) => `url(${p.src})`};
+	background-image: ${(p) =>
+		`url(${p.src}),url('assets/img/Image_not_available.png')`};
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
