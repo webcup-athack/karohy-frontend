@@ -158,7 +158,7 @@ const ServiceCard = ({ service, border }) => {
 										<LocationList>
 											Tel:
 											{service.contact.tel.map((t, i) => (
-												<a href={`tel:${t}`}>
+												<a href={`tel:${t}`} key={i}>
 													<LocationLabel>{t}</LocationLabel>
 												</a>
 											))}
@@ -178,7 +178,7 @@ const ServiceCard = ({ service, border }) => {
 													key={i}
 													href={r?.lien}
 													target="_blank"
-													rel="noopener"
+													rel="noreferrer"
 												>
 													<LocationLabel>{r?.lien}</LocationLabel>
 												</a>
