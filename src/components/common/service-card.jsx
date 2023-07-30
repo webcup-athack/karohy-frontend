@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 
 const ServiceCard = ({ service, border }) => {
 	return (
-		<Card className="col-lg-8 col-md-12 col-12">
+		<Card className="col-lg-5 col-md-6 col-12">
 			{/* <div
 				className="tp-sv-box wow tpfadeUp"
 				data-wow-duration={'2s'}
