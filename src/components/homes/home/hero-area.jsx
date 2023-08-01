@@ -168,13 +168,13 @@ const HeroArea = () => {
 				</div>
 			</div>
 
-			{!searched ? (
+			{/* {!searched ? (
 				<div className="row" ref={recommandationWrapper}>
 					<div className="col-12">
 						<ServiceCard title={'Services recommandés'} />
 					</div>
 				</div>
-			) : null}
+			) : null} */}
 		</>
 	);
 };
