@@ -170,7 +170,7 @@ const SearchForm = ({ stateSearch, setStateSearch }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 name="msg"
-                placeholder="Que recherchez-vous ?"
+                placeholder="Que recherchez-vous ? Ex : Je veux faire un mariage"
               />
             </InputWrapper>
             {/* {touched.msg && <ErrorMsg error={errors.msg} />} */}
