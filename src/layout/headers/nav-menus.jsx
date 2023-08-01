@@ -29,7 +29,7 @@ const NavMenus = () => {
               {menu.has_dropdown && <i className="fal fa-angle-down"></i>}
             </a>
           </Link>
-          {menu.has_dropdown && (
+          {/* {menu.has_dropdown && (
             <ul className="submenu text-start">
               {menu.sub_menus.map((sub_m, i) => (
                 <li key={i}>
@@ -50,7 +50,7 @@ const NavMenus = () => {
                 </li>
               ))}
             </ul>
-          )}
+          )} */}
         </li>
       ))}
     </ul>

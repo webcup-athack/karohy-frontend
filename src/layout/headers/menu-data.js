@@ -20,13 +20,13 @@ var menu_data = [
     mega_menu: true,
     has_dropdown: true,
     title: "Categories",
-    link: "/categories",
-    sub_menus: [
-      { link: "/categories/cat_1", title: "Maison et Déco" },
-      { link: "/categories/cat_2", title: "Santé et bien être " },
-      { link: "/categories/cat_3", title: "Véhicule et transport" },
-      { link: "/categories/cat_4", title: "Divers" },
-    ],
+    link: "/#",
+    // sub_menus: [
+    //   { link: "/categories/cat_1", title: "Maison et Déco" },
+    //   { link: "/categories/cat_2", title: "Santé et bien être " },
+    //   { link: "/categories/cat_3", title: "Véhicule et transport" },
+    //   { link: "/categories/cat_4", title: "Divers" },
+    // ],
   },
   // {
   //   id:4,
@@ -35,13 +35,13 @@ var menu_data = [
   //   title:'Blog',
   //   link:'/blog'
   // },
-  {
-    id: 5,
-    mega_menu: false,
-    has_dropdown: false,
-    title: "Nous contacter",
-    link: "/contact",
-  },
+  // {
+  //   id: 5,
+  //   mega_menu: false,
+  //   has_dropdown: false,
+  //   title: "Nous contacter",
+  //   link: "/contact",
+  // },
 ];
 
 const getAllSousCategorie = async () => {

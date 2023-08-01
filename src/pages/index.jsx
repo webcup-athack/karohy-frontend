@@ -13,7 +13,7 @@ export default function index() {
   return (
     <Wrapper>
       <SEO pageTitle={"Accueil"} />
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <HomeMain />
     </Wrapper>
   );

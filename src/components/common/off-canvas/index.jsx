@@ -110,16 +110,16 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             </div>
           </div>
           <div className="tpoffcanvas__contact">
-            <span>Contact us</span>
+            <span>Contactez-nous</span>
             <ul>
               <li>
                 <i className="fas fa-star"></i>{" "}
                 <a
-                  href="https://goo.gl/maps/abHegV4AoiJA6Syd8"
+                  href="https://www.google.com/maps/dir//Antanimena,+Tananarive/@-18.8991727,47.4816537,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x21f080a8d7ab0ddd:0x66befaa44188c582!2m2!1d47.5229391!2d-18.8991773?entry=ttu"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  Melbone st, Australia, Ny 12099
+                  Antanimena
                 </a>
               </li>
               <li>
@@ -132,7 +132,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               </li>
             </ul>
           </div>
-          <div className="tpoffcanvas__input d-none d-sm-block">
+          {/* <div className="tpoffcanvas__input d-none d-sm-block">
             <p>Get UPdate</p>
             <form className="p-relative" action="#">
               <input type="text" placeholder="Enter mail" />
@@ -140,7 +140,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 <i className="fas fa-paper-plane"></i>
               </button>
             </form>
-          </div>
+          </div> */}
           {/* <div className="tpoffcanvas__instagram d-none d-sm-block">
             <p>Check Instagram POst</p>
             <div className="tp-insta">
