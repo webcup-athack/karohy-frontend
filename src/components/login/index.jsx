@@ -15,10 +15,7 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <HeaderSix />
-      <Breadcrumb title={'Login Page'} />
       <LoginArea/>
-      <FooterThree />
     </Wrapper>
   );
 };

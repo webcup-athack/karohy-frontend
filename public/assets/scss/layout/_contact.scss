@@ -145,11 +145,14 @@
 .tp-login-title{
     font-size: 35px;
     font-weight: 700;
-    color: var(--tp-common-black);
+    color: rgba(255, 255, 255, 1);
     padding-bottom: 30px;
     @media #{$xs} {
         font-size: 30px;
     }
+}
+.tp-login-area{
+    background-color: conic-gradient(from 42.05deg at 73.96% 50%, #ED254E 0deg, #000000 183.66deg, #ED254E 360deg);
 }
 .tp-login-thumb{
     & img{
@@ -162,7 +165,7 @@
         & .tp-mail{
             margin-bottom: 15px;
             & label{
-                color: var(--tp-common-black);
+                color:rgba(255, 255, 255, 1);
                 display: block;
                 font-size: 14px;
                 font-weight: 500;
@@ -171,63 +174,63 @@
             & input{
                 height: 60px;
                 width: 100%;
-                background-color: var(--tp-grey-1);
-                border: 0;
-                border-radius: 5px;
+                background-color: rgba(237, 37, 78, 1);
+                border: none;
+                border-bottom: 3px solid rgba(255, 255, 255, 1) ;
                 padding: 0px 20px;
-                color: #B2B0C1;
+                color:rgba(255, 255, 255, 1);
                 &::placeholder{
                     font-size: 14px;
                     font-weight: 400;
-                    color: #B2B0C1;
+                    color: rgba(255, 255, 255, 1);
                 }
             }
         }
         & .tp-password{
             padding-bottom: 30px;
             & label{
-                color: var(--tp-common-black);
+                color: rgba(255, 255, 255, 1);
                 display: block;
                 font-size: 14px;
                 font-weight: 500;
                 margin-bottom: 8px;
             }
             & input{
-                width: 100%;
                 height: 60px;
-                background-color: var(--tp-grey-1);
-                border: 0;
-                border-radius: 5px;
+                width: 100%;
+                background-color: rgba(237, 37, 78, 1);
+                border: none;
+                border-bottom: 3px solid rgba(255, 255, 255, 1) ;
                 padding: 0px 20px;
-                color: #B2B0C1;
+                color:rgba(255, 255, 255, 1);
                 &::placeholder{
                     font-size: 14px;
                     font-weight: 400;
-                    color: #B2B0C1;
+                    color: rgba(255, 255, 255, 1);
                 }
             }
         }
         & .tp-number{
             padding-bottom: 10px;
             & label{
-                color: var(--tp-common-black);
+                color:rgba(255, 255, 255, 1);
                 display: block;
                 font-size: 14px;
                 font-weight: 500;
                 margin-bottom: 8px;
             }
             & input{
-                width: 100%;
                 height: 60px;
-                background-color: var(--tp-grey-1);
-                border: 0;
-                border-radius: 5px;
+                width: 100%;
+                background-color: rgba(237, 37, 78, 1);
+                border: none;
+                border-bottom: 3px solid rgba(255, 255, 255, 1) ;
                 padding: 0px 20px;
-                color: #B2B0C1;
+                color:rgba(255, 255, 255, 1);
                 &::placeholder{
                     font-size: 14px;
                     font-weight: 400;
-                    color: #B2B0C1;
+                    color: rgba(255, 255, 255, 1);
                 }
             }
         }
@@ -235,14 +238,14 @@
             margin-bottom: 40px;
             & .checkbox{
                 & label{
-                    color: var(--tp-common-black);
+                    color:rgba(255, 255, 255, 1);
                     font-size: 14px;
                     font-weight: 500;
                 }
             }
             & .forgot{
                 & a{
-                    color: #007AFF;
+                    color: rgba(255, 255, 255, 1);
                     font-size: 14px;
                     font-weight: 500;
                 }
@@ -252,14 +255,14 @@
             margin-top: 20px;
             & .account{
                 & a{
-                    color: var(--tp-common-black);
+                    color:rgba(255, 255, 255, 1);
                     font-size: 14px;
                     font-weight: 500;
                 }
             }
             & .signin{
                 & a{
-                    color: #007AFF;
+                    color: rgba(255, 255, 255, 1);
                     font-size: 14px;
                     font-weight: 500;
                 }
@@ -273,6 +276,7 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+    background-color:  rgba(237, 37, 78, 1);
 }
 
 .tp-404-thumb{

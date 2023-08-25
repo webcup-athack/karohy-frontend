@@ -15,10 +15,7 @@ const Register = () => {
 
   return (
     <Wrapper>
-      <HeaderSix />
-      <Breadcrumb title={'Register Page'} />
       <RegisterArea/>
-      <FooterThree />
     </Wrapper>
   );
 };

@@ -13,9 +13,14 @@ export const reviewSchema = Yup.object().shape({
 });
 
 export const registerSchema = Yup.object().shape({
-  name: Yup.string().required().label("Name"),
+  nom: Yup.string().required().label("Nom"),
+  prenom: Yup.string().required().label("Prenom"),
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(6).label("Password")
+  numeroTelephone:Yup.string().required().label("Numero de telephone"),
+  numeroMobileMoney:Yup.string().required().label("Numero mobile money"),
+  adresse:Yup.string().required().label("Adresse"),
+  motDePasse: Yup.string().required().min(6).label("Mot de passe"),
+  confirmerMotDePasse: Yup.string().required().min(6).label("Confirmer votre mot de passe")
 });
 
 export const loginSchema = Yup.object().shape({
