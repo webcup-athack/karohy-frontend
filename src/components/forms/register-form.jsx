@@ -3,12 +3,10 @@ import { useFormik } from 'formik';
 import { registerSchema } from '../../utils/validation-schema';
 import ErrorMsg from './error-msg';
 import Link from 'next/link';
-import useFirebase from '../../hooks/use-firebase';
 import { useSelector } from 'react-redux';
 
 const RegisterForm = () => {
   // register With Email Password
-  const {registerWithEmailPassword} = useFirebase();
   // use formik
   const { handleChange, handleSubmit, handleBlur, errors, values, touched } = useFormik({
     initialValues: { name: '', email: '', password: '' },
