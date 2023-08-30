@@ -21,7 +21,6 @@ const ErrorPage = () => {
         </div>
       </div>
       {/* <!-- 404-area-end --> */}
-      <FooterThree />
     </Wrapper>
   );
 };
