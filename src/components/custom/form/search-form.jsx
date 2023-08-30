@@ -7,9 +7,7 @@ import { toast } from "react-toastify";
 import { contactSchema } from "../../../utils/validation-schema";
 import ServiceCard from "../../common/service-card";
 
-import { services_data } from "../../../data";
 import SendIcon from "../../../imports/core/ui/SendIcon";
-import ErrorMsg from "./error-msg";
 
 const SearchForm = ({ stateSearch, setStateSearch }) => {
   const [searchResult, setSearchResult] = useState([]);

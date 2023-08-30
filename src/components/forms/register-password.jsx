@@ -17,7 +17,7 @@ const RegisterPassword = ({values,  errors, touched, handleChange, handleBlur, h
         {touched.confirmerMotDePasse && <ErrorMsg error={errors.confirmerMotDePasse} />}
       </div>
       <div className="tp-login-button">
-        <button className="tp-btn-black w-100" type="button" onClick={handleSubmit}>S'inscrire</button>
+        <button className="tp-btn-black w-100" type="button" onClick={handleSubmit}>S&apos;inscrire</button>
       </div>
     </>
   );
