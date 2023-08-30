@@ -1,7 +1,7 @@
 import { Wrapper } from "../layout";
-import HomeMain from "../components/homes/home";
 import SEO from "../components/seo";
 import dynamic from "next/dynamic";
+import Home from "../components/#home/Home";
 
 export default function index() {
   const CustomCursor = dynamic(
@@ -13,8 +13,8 @@ export default function index() {
   return (
     <Wrapper>
       <SEO pageTitle={"Accueil"} />
-      {/* <CustomCursor /> */}
-      <HomeMain />
+      <CustomCursor />
+      <Home />
     </Wrapper>
   );
 }
