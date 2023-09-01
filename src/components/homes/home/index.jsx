@@ -2,13 +2,7 @@ import React, { useEffect } from 'react';
 import { Header, Wrapper } from '../../../layout';
 import { animationCreate } from '../../../utils/utils';
 import HeroArea from './hero-area';
-
-// export async function getStaticProps() {
-//     const api_key = process.env.API_KEY;
-//     return {
-//       api_key
-//     }
-// }
+import SingleService from '../../common/single-service/SingleService';
 
 const Home = ({api_key}) => {
   useEffect(() => {
@@ -19,8 +13,7 @@ const Home = ({api_key}) => {
 
   return (
     <Wrapper>
-      <Header />
-      <HeroArea />
+      <SingleService />
     </Wrapper>
   );
 };

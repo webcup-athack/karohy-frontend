@@ -1,6 +1,6 @@
 import React from "react";
 import { services_data } from "../../../data";
-import SingleServiceTwo from "../../common/single-service-2";
+import SingleServiceTwo from "../../common/SingleService";
 
 const services_items = services_data.filter((s) => s.service_p_2);
 // sv-2-border
