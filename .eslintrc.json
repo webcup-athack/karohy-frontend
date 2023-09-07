@@ -1,4 +1,7 @@
 {
-  "extends": "next/core-web-vitals",
-  "no-duplicate-imports": "error"
+    "extends": "next/core-web-vitals",
+    "rules": {
+        "no-unused-vars": 0,
+        "no-duplicate-imports": "wran"
+    }
 }
