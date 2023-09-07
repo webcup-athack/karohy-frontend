@@ -4,15 +4,20 @@ if (typeof window !== "undefined") {
 }
 import '../styles/index.scss';
 
+import Container from '../services/Container'
+import ContainerProvider from './container-provider'
+
 
 
 function MyApp({ Component, pageProps }) {
+  // const container = Container.build()
 
-  return (
-    <>
+  return (<>
+    {/* <ContainerProvider container={container}> */}
       <Component {...pageProps} />
       <ToastContainer />
-    </>
+    {/* </ContainerProvider> */}
+  </>
   )
 }
 

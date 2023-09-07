@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import { registerSchema } from '../../utils/validation-schema';
 import ErrorMsg from './error-msg';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
 
 const RegisterForm = () => {
   // register With Email Password

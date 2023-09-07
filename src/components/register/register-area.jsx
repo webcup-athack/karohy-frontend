@@ -23,7 +23,7 @@ const RegisterArea = () => {
     validationSchema: registerSchema,
     onSubmit: () => {}
   })
-  const [formPosition, setFormPosition]= useState(0);
+  const [formPosition, setFormPosition]= useState(1);
   const changeForm = ( formPosition) =>{
     switch (formPosition){
       case 0:
